@@ -1,0 +1,60 @@
+      body{background-color: #121314;}
+      .contendedor_div{margin-top: 90px;border:1px solid white;border-radius:5px;padding-top:7px;margin-bottom:50px}
+      .texto_principal{color: white}
+      .img_log{width: 84px;width: 86px; margin-bottom: 17px;}
+      .log_sm_mas{color:green;font-size:1.1em}
+      .log_sm_borrar{color:#DF0101;font-size:1.1em}
+      .log_sm{color:rgba(0, 0, 0, .7);font-size: 1.3em}
+
+      .log_sm_mas:hover{color:#9FF781;}
+      .log_sm_borrar:hover{color: #FA5858}
+      .log_sm:hover{color:#f2f2f2}
+      .log_sm{
+            transition:all .5s ease-out;
+      }
+      .log_sm_mas{
+            transition:all .5s ease-out;     
+      }
+      .log_sm_borrar{
+            transition:all .5s ease-out;
+      }
+
+      .color_text{color:white;}
+      .color_orange{color:#e06000;}
+      .color_orange_a{text-decoration:none;color:#e06000;}
+      a.color_orange_a:hover{text-decoration:none;color:#e06000;}
+      .div_info{background-color: rgba(18,19,20,.1);}
+      .text_cliente{color:#e06000; font-size: 1.25em}
+      .barra_nav{background-color:#202122;border-radius: 2px;padding-top:5px;padding-bottom:4px;  }
+      .div_pr{background-color:#202122;  border:1px solid black;padding: 12px;margin-bottom:35px;}
+      select.slc_sm{height:20px;font-size:}
+      input.search_sm{height: 20px;}
+    
+      .btn-ind{background-color:#202122;color:white;margin-bottom: 40px;border:1px solid #e06000;font-size:1.15em;}
+      a.btn-ind:hover{text-decoration:none;color: white;}
+
+      select.slc_check{height:32px;background-color: black;color:white;border-radius: 3px;}
+      .div_check{background-color:black;color:white;border-radius: 2px}
+
+      .div_clientes{background-color:#353637;margin-bottom:20px;border-radius:5px;padding: 60px;color:white;}
+      a.tab_a{color:#f2f2f2;font-size:1.12em;}
+      a.tab_a:hover{color:#1C1C1C;font-size:1.12em;}
+
+      .text_label{color:#f2f2f2;}
+
+
+      label{color:#f2f2f2;}
+      input.input-sm_user{height: 20px;background-color:#E6E6E6}
+      input.input-sm_serv{height: 20px}
+      select.select-sm_user{height: 20px;background-color:#E6E6E6;margin-top: 28px;font-size:.9em;padding:0px}
+      .espacio_input{padding-left:26px;padding-right: 26px}
+
+      td{color:#F2F2F2;}
+
+      .icon_izq{border-font:solid 1px #e06000;font-size: 3.4em;text-align: center;margin-left: 22px;margin-bottom:20px;margin-top:13px;color: #484848  }
+      .icon_izq:hover{color:#f2f2f2}
+      .icon_izq{transition:all .2s ease-out;}
+      .borde_icon{}
+
+
+ 

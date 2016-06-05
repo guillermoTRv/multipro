@@ -1,0 +1,1 @@
+eliminar algun inmueble
