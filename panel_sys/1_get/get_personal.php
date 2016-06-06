@@ -18,7 +18,6 @@
 	$cambioVar_sub     = substr($nav,0,6);
 	if ($cambioVar_sub == "cambio") {
 		$ruta_select   = "personal";
-		include("get_edicionUsuarios.php");
 	}
 
 
@@ -44,6 +43,13 @@
 	$user_substrSup = substr($nav,0,4);
 	if ($user_substrSup == 'User') {		
 		$user_datos = 'User';
+	}
+
+	$nav_jefeTurno_substr = substr($nav,0,16);
+	if ($nav_jefeTurno_substr == "asignarJefeTurno") {
+		$nav_jefeTurno     = true;
+		$nav_jefeTurno_id  = substr($nav,17);
+		
 	}
 
 

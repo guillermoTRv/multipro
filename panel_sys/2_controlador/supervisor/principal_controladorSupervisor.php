@@ -11,6 +11,10 @@
 		include("panel_sys/personal/supervisor/infocambio_personal.php");
 	}
 
+	if (isset($nav_jefeTurno)) {
+		include("panel_sys/personal/supervisor/jefeTurno/jefeTurno_personal.php");	
+	}
+
 	if ($nav == 'servicios') {
 		include("panel_sys/servicios/supervisor/servicios_supervisor.php");
 	}

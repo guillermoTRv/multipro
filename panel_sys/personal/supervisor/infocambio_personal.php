@@ -29,7 +29,7 @@
 			<hr>
 			<p style="color:#f2f2f2;">Estado del usuario</p>			
 			<form id="form_jefeTurno" action="">
-				<a  href="#" class="a_limpia"><span class='glyphicon glyphicon-asterisk'></span> Asignar como jefe de turno</a>
+				<a  href="<?php echo "$ruta/panel/$user_get/asignarJefeTurno-".$idUser_nav; ?>" class="a_limpia"><span class='glyphicon glyphicon-asterisk'></span> Asignar como jefe de turno</a>
 			</form>
 	</div>
 

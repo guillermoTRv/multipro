@@ -1,5 +1,5 @@
 <?php 
-	$userBusqueda = "SELECT * FROM inmuebles WHERE id_inmueble='$inmuebleId_datos'";
+	$userBusqueda = "SELECT * FROM inmuebles WHERE id_inmueble='$datosInmuebles_id'";
 	$userEjecutar = mysqli_query($enlace,$userBusqueda);
 	$inArray    = mysqli_fetch_array($userEjecutar);
 
@@ -25,11 +25,5 @@
 				
 				</div>
 			</div>
-	
-	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/cambioInmueble-datosGenerales-".$inmuebleId_datos; ?>">Editar datos generales</a><br>
-	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/cambioInmueble-supervisor-".$inmuebleId_datos; ?>">Cambiar supervisor</a>	
-	</div>
-
-
 
 </div>

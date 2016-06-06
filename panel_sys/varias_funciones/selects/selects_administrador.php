@@ -9,16 +9,10 @@
             <?php
         }
 
-        if (isset($inmuebles_nav)) {
-            ?>
-                <select class="form-control select-sm_user" style='margin:0px;' id='consulta-lista-personal'>
-                     <option value='centro' <?php selected("inmuebles-centro");  ?>>Zona centro</option>
-                     <option value='norte'  <?php selected("inmuebles-norte");   ?>>Zona Norte</option>
-                     <option value='sur'    <?php selected("inmuebles-sur");     ?>>Zona Sur</option>
-                </select>
-            <?php
+        if (isset($inmuebles_nav) or isset($inmuebles_zonaid)) {
+            include("panel_sys/varias_funciones/selects/select_zonaInmueble.php");
         }
-        if (isset($check_nav)) {
+        if (isset($check_nav) or isset($baja_check)) {
             include("panel_sys/varias_funciones/selects/select_empresasCheck.php");
         }
 

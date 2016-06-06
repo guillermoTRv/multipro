@@ -22,20 +22,16 @@
                           <th style='color:white;'>Nombre</th>
                           <th style='color:white;'>Direccion</th>
                           <th style='color:white;'>Supervisor</th>
+                          <th style='color:white;'>###</th>
                         </tr>
                     </thead>
                     <tbody>
         				<?php 
 							
-
-
-
-
-
 							$consultaInmuebles = "SELECT * FROM inmuebles WHERE empresa='$ClienteNumSubstr'";
 							$consultaInmuebles = mysqli_query($enlace,$consultaInmuebles);
 							while ($arrayInmueblesTable = mysqli_fetch_array($consultaInmuebles)) {
-							
+							$id_inmueble      = $arrayInmueblesTable['id_inmueble']; 
 							$name_inmueble    = $arrayInmueblesTable['name_inmueble'];
 							$calle            = $arrayInmueblesTable['calle'];
 							$colonia          = $arrayInmueblesTable['colonia'];
@@ -43,15 +39,30 @@
 							$demarcacion      = $arrayInmueblesTable['demarcacion'];
 							$supervisor       = $arrayInmueblesTable['supervisor'];
 
+							$estado_repo      = $arrayInmueblesTable['estado_repo'];
+							if ($estado_repo == 'si') {global $color; $color = 'green';}
+							if ($estado_repo == 'no') {global $color; $color = '#DF0101';}
 
 							?>
-							<tr>
+							<tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>
 								<td><?php echo $name_inmueble ?></td>
 								<td><?php echo $calle ?></td>
 								<td><?php echo $supervisor ?></td>
+								<td>
+                                  <strong>
+                                          <?php echo "<span class='glyphicon glyphicon-asterisk' style='color:$color;'><span id='$id_inmueble'style='font-size:.1em;color:rgba(0,0,0,0);'>$id_inmueble</span></span>"; ?>
+                                  </strong>
+                                </td>
 							</tr>
 							<?php
-
+                              echo "
+                                  <script>
+                                      function myFunction$id_inmueble() 
+                                        {
+                                            window.location='$ruta/panel/$user_get/datosInmuebles-'+document.getElementById('$id_inmueble').innerHTML;
+                                        }
+                                  </script>
+                              ";
 
 
 							} 

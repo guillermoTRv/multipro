@@ -41,12 +41,8 @@
 		<?php
 	}
 
-	if ($nav == 'servicios') {
-		?>
-			<select class="form-control select-sm_user" style='margin:0px;'>
-                     <option>--</option>
-            </select>
-		<?php	
+	if (isset($servicios_nav)) {
+		include("panel_sys/varias_funciones/selects/select_empresasCheck.php");
 	}
 ?>
 

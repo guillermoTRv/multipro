@@ -1,18 +1,17 @@
 <?php 
-  if ($nav == 'inmuebles_listado') {
-      $inmuebles_c     = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE empresa='$getEmpresa' ORDER BY id_inmueble DESC"; 
-      $mansajeInmuebles = "Listado de inmuebles para $name_cliente";
-  } 
-  else{
-      $inmuebles_c      = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE zona = '$inmuebles_zonaid' ORDER BY id_inmueble DESC";
-      $mansajeInmuebles = "Listado de inmuebles para $inmuebles_zonaid";
-    }
+  if ($nav == 'inmuebles_bajas') {
+    ?>
+    <h4 class='texto_principal'>Baja de inmuebles</h4><p class='texto_principal'>Seleccione una empresa en la parte de arriba</p>
+    <?php
+  }
 
-?>
-<p class="texto_principal"><?php echo $mansajeInmuebles; ?></p>
+  else{
+    ?>
+
 <table class="table table-striped" style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
                      <thead>
                         <tr>   
+                          <th>--</th>
                           <th style='color:white;'>Nombre inmueble</th>
                           <th style='color:white;'>Direccion</th>
                           <th style='color:white;'>Supervisor</th>
@@ -20,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <?php 
+                      <?php                         $inmuebles_c = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE empresa='$getEmpresa' ORDER BY id_inmueble DESC";
                         $inmuebles_e = mysqli_query($enlace,$inmuebles_c);
                         while ($array = mysqli_fetch_array($inmuebles_e)) {
                               $id_inmueble   = $array['id_inmueble']; 
@@ -60,6 +59,7 @@
                                 
                               ?>
                               <tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>
+                                <td><input type="checkbox"></td>
                                 <td><?php echo $nombre ?></td>
                                 <td><?php echo $calle."&nbsp;".$num_exterior."&nbsp;".$colonia."&nbsp;".$demarcacion ?></td>
                                 <td><?php echo $supervisorTable; ?></td>
@@ -84,3 +84,6 @@
                       ?>
                     </tbody>
 </table>
+<?php
+  }
+?>

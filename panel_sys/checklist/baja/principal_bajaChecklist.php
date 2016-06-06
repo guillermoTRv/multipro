@@ -1,6 +1,6 @@
 <?php 
-  
-  $empresaSubstr = substr($nav,6);
+
+  $empresaSubstr = substr($nav,11);
   $idEmpresaCheckBusqueda = "SELECT id_cliente FROM clientes WHERE name_get = '$empresaSubstr'";
   $idEmpresaCheckEjecutar = mysqli_query($enlace,$idEmpresaCheckBusqueda);
   $idArray                = mysqli_fetch_array($idEmpresaCheckEjecutar);
@@ -9,17 +9,18 @@
 ?>
 
 <?php 
-  if ($empresaSubstr == "admin") {
-        echo "<h4 class='texto_principal'>Administración de checklist</h4><p class='texto_principal'>Seleccione una empresa en la parte de arriba</p>";
+  if ($nav == "baja_check") {
+        echo "<h4 class='texto_principal'>Baja de checklist</h4><p class='texto_principal'>Seleccione una empresa en la parte de arriba</p>";
   }
 
-  if($nav != 'check_baja'){
+  else{
     ?>
         <table class="table table-striped " style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
                      <thead>
                         <tr>   
+                          <th>--</th>
                           <th style='color:white;font-size:1.1em;'>Categoria</th>
-                          <th style='color:white;font-size:1.1em;'>Situación</th>
+                          <th style='color:white;font-size:1.1em;'>Situhhhhhhhación</th>
                           <th style='color:white;font-size:1.1em;'>Status</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
 
                             ?>
                               <tr>
+                                <td><input type="checkbox"></td>
                                 <td><?php echo $categoria; ?></td>
                                 <td><?php echo $situacion; ?></td>
                                 <td><?php echo $status; ?></td>

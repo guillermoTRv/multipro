@@ -16,7 +16,11 @@
 	    if($variableControllerBaja!=1){
 	    	$complementoBaja = $popover.$opcion_none;
 	    }
-		
+		if (isset($check_nav) or isset($baja_check)) {
+			$rutaAgregar        = "$ruta/panel/$user_get/baja_check"; 
+	    	$complementoBaja     = "href='$rutaAgregar'";
+	    	$variableControllerBaja = 1;
+		}
 		
 
 		?>

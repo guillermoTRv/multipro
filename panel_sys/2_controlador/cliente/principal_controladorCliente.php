@@ -11,7 +11,11 @@
 		include("panel_sys/inmuebles/cliente/listado_inmueblesCliente.php");		
 	}	
 
-	if ($nav == "servicios") {
+	if (isset($datosInmuebles_nav)) {
+		include("panel_sys/inmuebles/cliente/datosInmuebles.php");
+	}
+
+	if (isset($servicios_nav)) {
 		include("panel_sys/servicios/cliente/servicios_cliente.php");
 	}
 
