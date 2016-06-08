@@ -4,23 +4,25 @@
                      	<h3 style='margin-bottom:20px;margin-top:20px;margin-left:-14px;color:#f2f2f2;'>Asistencias</h3>
                      </center>
             </div>
- 
-                   <div class="row" style='margin-top:70px;'>
-                       <div class="col-md-5 col-md-offset-2">
-                         <a style='width:170px;font-size:1.2em;' class='btn btn-sm btn-ind'> Registrar entrada </a>
-                       </div>
-                       <div class="col-md-5 pull-right">
-                         <a style='width:170px;font-size:1.2em;' class='btn btn-sm btn-ind disabled'> Registrar salida </a>
-                       </div>
-                   </div>
- 
-                   <div class="row">
-                     <div class="col-md-6 col-md-offset-3">
-                         <h3 class='mens_bienvenida' style='text-align:center;color:#f2f2f2;'>
-                           ¡Que tenga un dia muy productivo!
-                         </h3>
-                     </div>
-                   </div>
+            
+
+             <?php 
+               $consultaRegistroEstado = "SELECT estado_registro,hora_entrada FROM registros_es WHERE id_personal='$id_personal' order by id_registro_es desc";
+               $consultaRegistroEstado = mysqli_query($enlace,$consultaRegistroEstado) or die("nop");
+               $consultaRegistroEstado = mysqli_fetch_array($consultaRegistroEstado);
+               $estado_registro   = $consultaRegistroEstado['estado_registro'];
+               $fecha_registro    = $consultaRegistroEstado['hora_entrada'];
+
+               if ($estado_registro == '' || $estado_registro == 'correcto') {
+                 include("panel_sys/registros_es/guardia/vistasRegistroGuardia/vista_registrarEntrada.php");
+               }
+               if ($estado_registro == 'entrada' or $estado_registro == 'salida') {
+                 include("panel_sys/registros_es/guardia/vistasRegistroGuardia/vista_estadoentrada.php");   
+               }
+               if ($estado_registro == 'pendiente') {
+                 include("panel_sys/registros_es/guardia/vistasRegistroGuardia/vista_registrarSalida.php"); 
+               }
+             ?>
                   
                     <div class="row" style='margin-top:40px;margin-bottom:60px;padding-left:20px;padding-right:20px;'>
                        <a href="#list" data-toggle='modal'>
@@ -36,3 +38,4 @@
                 <?php 
                     include("panel_sys/registros_es/guardia/listado_checklist.php");
                 ?>
+

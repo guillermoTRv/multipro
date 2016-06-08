@@ -1,6 +1,6 @@
 <?php 
 	if ($nav == 'asistencia') {
-		include("panel_sys/registros_es/principal_registroSupervisor.php");
+		include("panel_sys/registros_es/supervisor/principal_registroSupervisor.php");
 	}
 
 	if (isset($personal_nav)) {

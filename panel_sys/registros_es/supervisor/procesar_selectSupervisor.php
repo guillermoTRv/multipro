@@ -7,6 +7,5 @@
 		echo "<input type='hidden' name='inmuebleRegistro' value='$id_inmueble'>";
 		echo $toquen;
 	}
-
 	
 ?>

@@ -30,12 +30,15 @@
 	                                  hora_entrada,
 	                                  hora_salida,
 	                                  estado_registro,
-	                                  inmueble) 
+	                                  inmueble,
+									  personal
+	                                  ) 
 	                           VALUES('$id_personal',
 	                                  '$fecha',
 	                                  '$fecha',
 	                                  'entrada',
-	                                  '$inmuebleRegistro')";
+	                                  '$inmuebleRegistro',
+	                                  'supervisor')";
 	$registrarEntrada = mysqli_query($enlace,$registrarEntrada) or die("error registro");
 
 	$mensaje   = $aviso."<h4 class='texto_principal'>Se ha registrado la entrada - que tenga un buen día de trabajo</h4><br>";

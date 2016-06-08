@@ -89,7 +89,7 @@
 
         $(function(){
         $(document).on("click","#btn-registroSupervisor",function(){
-                    var url="../../panel_sys/varias_funciones/registros_es/procesarRegistro_supervisor.php";
+                    var url="../../panel_sys/registros_es/supervisor/procesarRegistro_supervisor.php";
                     $.ajax({
                         type:"POST",
                         url:url,
@@ -109,7 +109,7 @@
 
         $(function(){
           $(document).on("click","#btn-salidaSupervisor",function(){
-                    var url="../../panel_sys/varias_funciones/registros_es/procesarSalida_supervisor.php";
+                    var url="../../panel_sys/registros_es/supervisor/procesarSalida_supervisor.php";
                     $.ajax({
                         type:"POST",
                         url:url,
@@ -173,9 +173,54 @@
         $(document).on("change","#select_registro_supervisor",function(){
                    $("#select_registro_supervisor option:selected").each(function () {
                     registros_es=$(this).val();
-                    $.post("../../panel_sys/varias_funciones/registros_es/procesar_selectSupervisor.php", { registros_es: registros_es }, function(data){
+                    $.post("../../panel_sys/registros_es/supervisor/procesar_selectSupervisor.php", { registros_es: registros_es }, function(data){
                     $("#campo_inmueble").html(data);
                     
                 });
            })
         });
+
+
+        /***********************************************************************************************/
+        /********ajax reporte checklist***************************************/
+        /***********************************************************************************************/
+
+        $(function(){
+                $("#guardar_reporteChecklist").click(function(){
+                    var url="../../panel_sys/registros_es/guardia/procesar_checklistGuardia.php";
+                    $.ajax({
+                        type:"POST",
+                        url:url,
+                        data:$("#form-reporteChecklist").serialize(),
+
+                        success:function(data){
+                            $("#mensaje_reporteChecklist").html(data);                
+                        }
+
+                    });
+                    return false;
+                });
+            });
+
+        /***********************************************************************************************/
+        /********ajax registro_es guardia***************************************/
+        /***********************************************************************************************/
+
+         $(function(){
+        $(document).on("click","#btn-registroGuardia",function(){
+                    var url="../../panel_sys/registros_es/guardia/procesarRegistro_guardia.php";
+                    $.ajax({
+                        type:"POST",
+                        url:url,
+                        data:$("#form-registroGuardia").serialize(),
+                        dataType:"json",
+                        success:function(data){
+                            $("#deshabilitar_form").html(data.uno);
+                            $("#mensaje-registroGuardia").html(data.dos);
+                        }
+
+                    });
+
+                    return false;
+                });
+            });

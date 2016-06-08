@@ -8,7 +8,7 @@
                   </div>
                   <div class="col-md-4">
                     <select id="select_registro_supervisor" class='form-control select-sm_user' style='margin-top:10px;'>
-                      <?php include("panel_sys/registros_es/inmuebles_supervisor.php"); ?>
+                      <?php include("panel_sys/registros_es/supervisor/inmuebles_supervisor.php"); ?>
                     </select>
                   </div>
       
@@ -24,13 +24,13 @@
                $fecha_registro    = $consultaRegistroEstado['hora_entrada'];
 
                if ($estado_registro == '' || $estado_registro == 'correcto') {
-                 include("panel_sys/registros_es/vistasRegistroSup/vista_registrarEntrada.php");
+                 include("panel_sys/registros_es/supervisor/vistasRegistroSup/vista_registrarEntrada.php");
                }
                if ($estado_registro == 'entrada' or $estado_registro == 'salida') {
-                 include("panel_sys/registros_es/vistasRegistroSup/vista_estadoentrada.php");   
+                 include("panel_sys/registros_es/supervisor/vistasRegistroSup/vista_estadoentrada.php");   
                }
                if ($estado_registro == 'pendiente') {
-                 include("panel_sys/registros_es/vistasRegistroSup/vista_registrarSalida.php"); 
+                 include("panel_sys/registros_es/supervisor/vistasRegistroSup/vista_registrarSalida.php"); 
                }
 
 

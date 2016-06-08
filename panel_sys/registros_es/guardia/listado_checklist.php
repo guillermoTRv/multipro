@@ -6,8 +6,9 @@
         <h4 class="modal-title" id="myModalLabel">Levantar reporte</h4>
       </div>
       <div class="modal-body">
-	  <form action="panel_sys/registro_es/guardia/procesar_checklistGuardia.php" method="POST" enctype="multipart/form-data">
+	  <form id="form-reporteChecklist" method="POST" enctype="multipart/form-data">
 	  <?php
+	  	echo $toquen;
 	  	$consultaCategoria = "SELECT categoria FROM check_categoria WHERE id_empresa = '$empresaAsign'";
 	  	$consultaCategoria = mysqli_query($enlace,$consultaCategoria);
 	  	$n=0;
@@ -27,16 +28,17 @@
 					    	$i++;
 					    	?>		        
 					    		<label>
-							      <input type="checkbox" name="<?php echo "situacion".$n.$i ?>"  ><?php echo $check_list.$n.$i ?> | <small>status</small> ->  
+							      <input type="checkbox" value='<?php echo $check_list ?>' name="<?php echo "situacion".$n.$i ?>"  ><?php echo $check_list.$n.$i ?> | <small>status</small> ->  
 							    </label>  
 
 							    <label>
-							      <input type="checkbox" name="<?php echo "sin".$n.$i ?>"> Sin novedad ||
+							      <input type="checkbox" value='sin novedad' name="<?php echo "sin".$n.$i ?>"> Sin novedad ||
 							    </label>  
 
 								<label style="margin-bottom:-10px;">
-								  <input type="email" name="<?php echo "repo".$n.$i ?>" style='width: 250px' class="form-control input-sm" id="exampleInputEmail3" placeholder="Escribir solo en caso e reporte">
+								  <input type="text" name="<?php echo "repo".$n.$i ?>" style='width: 250px' class="form-control input-sm" id="exampleInputEmail3" placeholder="Escribir solo en caso e reporte">
 								</label>
+								<input type="hidden" value="<?php echo $categoria; ?>" name="<?php echo "categoria".$n.$i; ?>">
 					      <?php
 					    }	
 
@@ -47,13 +49,7 @@
 	  		<?php
 	  		}
 	  ?>
-		
-
-
-
-
-
-      	
+		 	
       	<?php /*
 			$consultaCheck = "SELECT * FROM check_list WHERE id_empresa='$empresaAsign'";
 		    $consultaCheck = mysqli_query($enlace,$consultaCheck) ;
@@ -67,10 +63,11 @@
 		?>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Guardar reporte</button>
+        <button type="button" class="btn btn-default" id="guardar_reporteChecklist">Guardar reporte</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar ventana</button>
       </div>
       </form>
+      <div id="mensaje_reporteChecklist"></div>
     </div>
   </div>
 </div>
