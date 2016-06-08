@@ -86,9 +86,9 @@
 			
 			$busquedaLoginArray = mysqli_fetch_array($busquedaLogin);	
 
-			echo $id_usuarioA	= $busquedaLoginArray['id_usuario'];
-			echo $usuario       = $busquedaLoginArray['usuario'];
-			echo $puesto        = $busquedaLoginArray['puesto'];
+			$id_usuarioA	= $busquedaLoginArray['id_usuario'];
+			$usuario       = $busquedaLoginArray['usuario'];
+			$puesto        = $busquedaLoginArray['puesto'];
 
 			session_start();
 			$_SESSION['id_usuario']   =  $id_usuarioA;

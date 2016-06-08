@@ -28,9 +28,9 @@
 			include("panel_sys/personal/admin/editar_condiciones/editar_condiciones.php");
 		}
 
-
 		$cambioPuesto_sub      = substr($nav,7,6);
 		if ($cambioPuesto_sub == "Puesto") {
+			$varUser = substr($nav,14);
 			include("panel_sys/personal/admin/editar_puesto/editar_puesto.php");
 		}
 

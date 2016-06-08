@@ -78,59 +78,13 @@
 				<option value="zona sureste">Zona sureste</option>
 				<option value="zona centro oriente">Zona centro oriente</option>
 			</select>
-		</div>		
-	</div>
+		</div>	
 
-	<div  class="row" style='margin-top:20px;padding:10px;'>
 		<div class="col-md-8">
-				<center>
-				<div style='background-color:#151515;margin-top:20px;margin-bottom:13px;border-radius:4px;width:93%;'>
-					<p style='text-align:center;color:white;'>Datos de reporte</p>
-				</div>
-				</center>
-				<div class="row">
-					<div class="col-md-6 espacio_input">
-						<select class='form-control select-sm_user' style='margin-top:-0px;' name=''>
-							<option>--</option>
-						</select>
-					</div>
-					<div class="col-md-6 espacio_input">
-						<select class='form-control select-sm_user' style='margin-top:-0px;' name=''>
-							<option>--</option>
-						</select>
-					</div>
-				</div>
-				<div class="row  espacio_input" style='margin-top:20px;'>
-					<div class="col-md-12" style='background-color:#E6E6E6;border-radius:5px;'>
-						
-						<div class="row">
-							<div class="col-md-3 col-md-offset-2">
-								  <div class="checkbox">
-								    <label>
-								      <input type="checkbox"> <p style='color:black;'>Check list</p>
-								    </label>
-								  </div>
-
-							</div>	
-
-							<div class="col-md-5 pull-right">
-								  <div class="checkbox">
-								    <label>
-								      <input type="checkbox"> <p style='color:black;'>Check list</p>
-								    </label>
-								  </div>
-
-							</div>	
-						</div>
-
-					</div>
-				</div>
-		</div>
-		<div class="col-md-4">
 			<p class='text_label'>*Referencias</p>
 			<textarea class="form-control" rows="3" name='referencia'></textarea >
 		</div>	
-		<?php echo $toquen; ?>
+		<?php echo $toquen; ?>	
 	</div>
 
   </form>

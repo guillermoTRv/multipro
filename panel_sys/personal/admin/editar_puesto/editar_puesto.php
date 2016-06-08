@@ -20,7 +20,7 @@
 			<?php echo "Nombre del personal: ".$nombre_usuario."&nbsp;".$apellido_p."&nbsp;".$apellido_m ?>
 		</p>
 		<hr>
-		<form id="cambio_usuario" method="post" enctype="multipart/form-data">
+		<form id="cambio_usuarioPuesto" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 		    	<label>Puesto a cambiar</label>
 		    	<input disabled type="text" class="form-control input-sm" placeholder="Supervisor">
@@ -29,7 +29,8 @@
 		
 		  	<div class="form-group">
 		  		<label>Seleccionar una empresa</label>
-		  		<select name="empresa_slc" class='form-control input-sm' id="empresa_slc">
+		  		<select name="empresa_slc" class='form-control input-sm' id="empresa_slc_cambioPuesto">
+		  			<option value="">--</option>
 		  			<?php 
 						include("panel_sys/empresas_option.php");
 					?>
@@ -37,7 +38,7 @@
 		  	</div>
 		  	<div class="form-group">
 		  		<label>Selecciona un inmueble para la asignación</label>
-		  		<select name="inmueble_slc" class='form-control input-sm' id="inm_slc">
+		  		<select name="inmueble_slc" class='form-control input-sm' id="inm_slc_cambioPuesto">
 		  			<option value="">--</option>
 		  		</select>
 		  	</div>

@@ -21,8 +21,6 @@
 			$updateEstado  = mysqli_query($enlace,$updateEstado);
 		}
 
-
-
 	}
 
 

@@ -3,6 +3,14 @@
 		include("panel_sys/personal/cliente/listado_personalGuardias.php");
 	}
 
+	if (isset($personal_user)) {
+		include("panel_sys/personal/cliente/datos_guardia.php");
+	}
+
+	if (isset($supervisor_user)) {
+		include("panel_sys/personal/cliente/datos_supervisores.php");
+	}
+
 	if (isset($personalSupervisorNavCliente)) {
 		include("panel_sys/personal/cliente/listado_personalSupervisor.php");
 	}

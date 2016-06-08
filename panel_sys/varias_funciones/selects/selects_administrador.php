@@ -29,8 +29,7 @@
         if (isset($reportes_nav)) {
             ?>
                 <select class="form-control select-sm_user" style='margin:0px;'  id='consulta-lista-personal'>
-                     <option value='normales'        <?php selected("reportes-normales");        ?>>Normales</option>
-                     <option value='extraordinarios' <?php selected("reportes-extraordinarios"); ?>>Extraordinarios</option>
+                     <option value='normales'>--</option>
                 </select>
             <?php 
         }

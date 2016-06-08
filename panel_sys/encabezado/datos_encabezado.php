@@ -71,11 +71,11 @@
    }
    if ($type_user=='guardia') {
        
-      $busquedaInmuebleUser = "SELECT inmueble_asign FROM usuarios_datos_basicos WHERE id_usuario = '$id_personal'"; 
+      $busquedaInmuebleUser = "SELECT inmueble_asign,empresa FROM usuarios_datos_basicos WHERE id_usuario = '$id_personal'"; 
       $busquedaInmuebleUser = mysqli_query($enlace,$busquedaInmuebleUser);
       $busquedaInmuebleUser = mysqli_fetch_array($busquedaInmuebleUser);
       $inmueble_asignUser   = $busquedaInmuebleUser['inmueble_asign'];
-
+      $empresaAsign         = $busquedaInmuebleUser['empresa'];
 
        $tipo_usuario_encabezado = $type_user;
        $dato_izquierdo          = $inmueble_asignUser;

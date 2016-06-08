@@ -1,7 +1,7 @@
 <?php 
 
 	$controller = 0;
-	include("../../pack_config.php");
+	include("../../../../pack_config.php");
 
 	session_start();
 	$type_user = $_SESSION['type_user'];

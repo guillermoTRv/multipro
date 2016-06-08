@@ -21,89 +21,18 @@
                          </h3>
                      </div>
                    </div>
- 
-
-                   <?php  
-                    if ($type_user == "guardia") {
-                    ?>  
-                    
-                   <div class="row" style='margin-top:40px;padding-left:20px;padding-right:20px;'>
-                     <div class="col-md-10 col-md-offset-1" style='padding-top:4px;padding-bottom:-4px;background-color:rgba(0,0,0,.5);border:solid 1px white;border-radius:3px;'>
-                        <center>
-                          <p style='margin-bottom:4px;color:white'>Check list</p>
-                        </center>
-                     </div>
-                   </div>
- 
-                   <div class="row  espacio_input" style='margin-top:20px;'>
-                      <div class="col-md-10 col-md-offset-1" style='background-color:rgba(0,0,0,.5);border-radius:5px;'>
-                        
-                        <div class="row">
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Revisar alarmas</p>
-                                </label>
-                              </div>
-                          </div>  
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Extintores</p>
-                                </label>
-                              </div>
-                          </div>  
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Goteras</p>
-                                </label>
-                              </div>
-                          </div>  
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Botiquin</p>
-                                </label>
-                              </div>
-                          </div>
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Salida de emergencia</p>
-                                </label>
-                              </div>
-                          </div>  
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Revisar Accesos</p>
-                                </label>
-                              </div>
-                          </div>
-
-                          <div class="col-md-3">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> <p>Columna agrietada</p>
-                                </label>
-                              </div>
-                          </div>  
-
-                        </div>
-
-                      </div>
+                  
+                    <div class="row" style='margin-top:40px;margin-bottom:60px;padding-left:20px;padding-right:20px;'>
+                       <a href="#list" data-toggle='modal'>
+                       <div class="col-md-10 col-md-offset-1" style='padding-top:4px;padding-bottom:-4px;background-color:rgba(0,0,0,.5);border:solid 1px white;border-radius:3px;'>
+                          <center>
+                            <p style='margin-bottom:4px;color:white'>Check list</p>
+                          </center>
+                       </div>
+                       </a>
                     </div>
-                    <br><br>
-                    <?php
-                    }
-                    if ($type_user == "supervisor") {
-                      ?><br><br><br><br><?php
-                    }
-                   ?>
+                      
                 </div>
+                <?php 
+                    include("panel_sys/registros_es/guardia/listado_checklist.php");
+                ?>

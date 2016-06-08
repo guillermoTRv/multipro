@@ -1,7 +1,6 @@
-
         $(function(){
                 $("#btn-alta-inmueble").click(function(){
-                    var url="../../panel_sys/inmuebles/crear/procesar_inmueble.php";
+                    var url="../../panel_sys/inmuebles/admin/crear/procesar_inmueble.php";
                     $.ajax({
                         type:"POST",
                         url:url,
@@ -16,9 +15,10 @@
                 });
             });
 
+
         $(function(){
                 $("#btn-alta-user").click(function(){
-                    var url="../../panel_sys/crear_user/procesar_formUser.php";
+                    var url="../../panel_sys/personal/admin/crear_guardia/procesar_formUser.php";
                     $.ajax({
                         type:"POST",
                         url:url,
@@ -33,14 +33,15 @@
                 });
             });
 
-
+/****************Ajax cambiar puesto***********************************************/
+/**********************************************************************************/
         $(function(){
           $(document).on("click","#btn-cambio-user",function(){
-                    var url="../../panel_sys/cambio_usuario/procesar_cambio.php";
+                    var url="../../panel_sys/personal/admin/editar_puesto/procesar_cambioPuesto.php";
                     $.ajax({
                         type:"POST",
                         url:url,
-                        data:$("#cambio_usuario").serialize(),
+                        data:$("#cambio_usuarioPuesto").serialize(),
                         success:function(data){
                             $("#m_v").html(data);
                         }
@@ -50,6 +51,22 @@
                     return false;
                 });
             });
+
+        $(document).on("change","#empresa_slc_cambioPuesto",function(){
+                   $("#empresa_slc_cambioPuesto option:selected").each(function () {
+                    elegid=$(this).val();
+                    $.post("../../panel_sys/personal/admin/editar_puesto/inmuebles_selectPuesto.php", { elegid: elegid }, function(data){
+                    $("#inm_slc_cambioPuesto").html(data);
+                    
+                });
+           })
+        });
+/**********************************************************************************/
+/**********************************************************************************/
+
+
+
+
 
         $(function(){
           $(document).on("click","#btn-alta-cliente",function(){
@@ -122,15 +139,6 @@
            })
         });
 
-        $(document).on("change","#empresa_slc",function(){
-                   $("#empresa_slc option:selected").each(function () {
-                    elegid=$(this).val();
-                    $.post("../../panel_sys/cambio_usuario/inmuebles_select.php", { elegid: elegid }, function(data){
-                    $("#inm_slc").html(data);
-                    
-                });
-           })
-        });
 
         $(document).on("change","#cliente_check",function(){
                    $("#cliente_check option:selected").each(function () {
@@ -145,7 +153,7 @@
         $(document).on("change","#cliente_personal",function(){
                    $("#cliente_personal option:selected").each(function () {
                     personal=$(this).val();
-                    $.post("../../panel_sys/listados/clientes/inmueblesAjax.php", { personal: personal }, function(data){
+                    $.post("../../panel_sys/personal/cliente/inmueblesAjax.php", { personal: personal }, function(data){
                     $("#inmuebles_personal").html(data);
                     
                 });
@@ -155,7 +163,7 @@
         $(document).on("change","#inmuebles_personal",function(){
                    $("#inmuebles_personal option:selected").each(function () {
                     personal=$(this).val();
-                    $.post("../../panel_sys/listados/clientes/listado_personalAjax.php", { personal: personal }, function(data){
+                    $.post("../../panel_sys/personal/cliente/listado_personalAjax.php", { personal: personal }, function(data){
                     $("#listado_personal").html(data);
                     
                 });

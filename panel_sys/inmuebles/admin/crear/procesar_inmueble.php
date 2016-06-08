@@ -1,6 +1,6 @@
 <?php 
 	#aqui faltaria hacer los formatos para aceptar solo ciertos caracteres
-	include("../../../pack_config.php");
+	include("../../../../pack_config.php");
 	session_start();
 	$type_user = $_SESSION['type_user'];
 	if ($type_user == 'administrador') {
