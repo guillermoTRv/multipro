@@ -30,9 +30,11 @@
                                   if ($estado == 'si') {global $color; $color = 'green';}
                                   if ($estado == 'no') {global $color; $color = '#DF0101';}
 
-                                ?>
+                                ?><form id="form_bajaElementos" method="POST" enctype="multipart/form-data">
                                     <tr style='margin-bottom:7px;' <?php echo "ondblclick='myFunction$id_usuario()'"; ?>>
-                                      <td><input type="checkbox"></td>
+                                      <td>
+                                        <input type="checkbox" name="<?php echo "user_".$id_usuario ?>" value="<?php echo $id_usuario ?> ">
+                                      </td>
                                       <td><?php echo "$nombre_g $apellido_p $apellido_m" ?></td>
                                       <td><?php echo "20"; ?></td>
                                       <td><?php echo "$calle $colonia $num_ext $demarcacion"; ?></td>
@@ -44,6 +46,7 @@
                                         </strong>
                                       </td>
                                     </tr>
+                                  </form>
                                         <?php 
                                           echo "
                                               <script>

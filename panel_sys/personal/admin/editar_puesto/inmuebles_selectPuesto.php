@@ -4,7 +4,7 @@
 	include("../../../../cfg.php");
 
 
-	$idConsulta = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE empresa = '$var'";
+	$idConsulta = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE empresa = '$var' order by id_inmueble asc";
 	$idEjecutar = mysqli_query($enlace,$idConsulta);
 	
 	while ($idArray = mysqli_fetch_array($idEjecutar)) {

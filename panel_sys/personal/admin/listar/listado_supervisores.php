@@ -31,8 +31,9 @@
                                 $inmueble     = $consultaArray['inmueble_asign'];
                                 $estado       = $consultaArray['estado_repo'];
                                 $edad         = $consultaArray['edad'];
-                                  if ($estado == 'si') {global $color; $color = 'green';}
-                                  if ($estado == 'no') {global $color; $color = '#DF0101';}
+                                
+                                $type_userConsulta = "supervisor";
+                                include("panel_sys/personal/admin/listar/estado_personalBasico.php");
 
                                 ?>
                                     <tr style='margin-bottom:7px;' <?php echo "ondblclick='myFunction$id_usuario()'"; ?>>

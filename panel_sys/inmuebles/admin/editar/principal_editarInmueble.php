@@ -27,9 +27,12 @@
 			</div>
 	
 	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/cambioInmueble-datosGenerales-".$inmuebleId_datos; ?>">Editar datos generales</a><br>
-	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/cambioInmueble-supervisor-".$inmuebleId_datos; ?>">Cambiar supervisor</a>	
+	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/cambioInmueble-supervisor-".$inmuebleId_datos; ?>">Cambiar supervisor</a><br>
+	<a class="a_limpia" href="<?php echo "$ruta/panel/$user_get/estadoChecklist-".$inmuebleId_datos; ?>">Revisar estado checklist</a>	
+	<?php 
+		include("panel_sys/inmuebles/admin/editar/info_reportes_inmuebles.php");
+	?>
+	
 	</div>
-
-
-
 </div>
+

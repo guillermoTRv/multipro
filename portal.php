@@ -31,7 +31,7 @@
     <!--Ponerle la etiqueta para que google no indexe el contenido-->
     <title>Listado de clientes</title>
     <link href="<?php echo $ruta ?>/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo $ruta ?>/css/css_panell.css" rel="stylesheet">
+    <link href="<?php echo $ruta ?>/css/css_panelll.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
 

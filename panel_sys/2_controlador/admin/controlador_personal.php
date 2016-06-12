@@ -26,14 +26,18 @@
         } 
     
         if (isset($personal_user)) {
-          include("panel_sys/personal/admin/editar/principal_editarUsuario.php");
+          include("panel_sys/personal/admin/info_personal/informacion_guardia.php");
         }
 
         if (isset($cambioVar)) {
           include("panel_sys/2_controlador/admin/controlador_edicionUsuario.php");
         }
 
-        if (isset($supervisor_nav)) {
-          include("panel_sys/controladores/admin/controlador_edicionSupervisor.php");
+        if (isset($supervisor_user)) {
+          include("panel_sys/personal/admin/info_personal/informacion_supervisor.php");
+        }
+
+        if (isset($cliente_user)) {
+          include("panel_sys/personal/admin/info_personal/informacion_cliente.php");
         }
 ?>

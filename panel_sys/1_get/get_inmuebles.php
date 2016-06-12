@@ -37,8 +37,14 @@
 		 $cambioInmueble_sup_substr = substr($nav,0,25);
 		 if ($cambioInmueble_sup_substr == "cambioInmueble-supervisor") {
 		 	   $cambioInmueble_supervisor = "cambioInmueble";
-		 	   $cambioInmueble_supervisor = substr($nav,26);
+		 	   $cambioInmueble_supervisorId = substr($nav,26);
 		 }
+		 $estado_checklistInmuebleSub = substr($nav,0,15);
+		 if ($estado_checklistInmuebleSub == "estadoChecklist") {
+		 	 $estado_checklistInmueble    = "cambioInmueble";
+		 	 $estado_checklistInmuebleId  =  substr($nav,16);
+		 }
+
 
 		 ########cliente########
 		 $datosInmuebles_substr = substr($nav,0,14);

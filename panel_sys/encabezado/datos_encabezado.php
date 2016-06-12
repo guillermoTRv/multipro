@@ -65,7 +65,7 @@
 
    if ($type_user=='supervisor') {
    		 $tipo_usuario_encabezado = $type_user;
-   		 $dato_izquierdo          = "";
+   		 include("panel_sys/encabezado/datos_izquierdoSupervisor.php");
    		 nombresConsulta($enlace,$id_personal);
        
    }

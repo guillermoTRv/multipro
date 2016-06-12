@@ -33,7 +33,7 @@
                               #revisar la codificacion de los campos en las bases de datos
 
 
-                              $estado_repo   = $array['estado_repo'];
+                              
                               
                               $id_supervisor = $array['supervisor'];
                               
@@ -53,11 +53,8 @@
                                      $supervisorTable = $id_supervisor;
                               }
                               
-                              
+                              include("panel_sys/inmuebles/estado_repoInmueble.php");
 
-                              if ($estado_repo == 'si') {global $color; $color = 'green';}
-                              if ($estado_repo == 'no') {global $color; $color = '#DF0101';}
-                                
                               ?>
                               <tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>
                                 <td><?php echo $nombre ?></td>

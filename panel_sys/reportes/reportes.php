@@ -1,11 +1,13 @@
-<h4 class='texto_principal'>Generacion de <?php echo $nav ?></h4>
+<h4 class='texto_principal'>Generacion de <?php echo $nav."&nbsp;&nbsp;" ;date_default_timezone_set('America/Mexico_City'); echo $fecha_m = date("Y-m-d"); ?> </h4>
 <hr>
 
 <?php 
 	if ($nav=="reportes") {
 	?>		
 		<a href="<?php echo "$ruta/panel/$user_get/reportes-asistencias"; ?>" class="a_limpia"><span class='glyphicon glyphicon-ok'></span> Generar reporte asistencia</a><br>
-		<a href="<?php echo "$ruta/panel/$user_get/reportes-historial"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte de historiales</a>
+		<a href="<?php echo "$ruta/panel/$user_get/reportes-historial"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte de historiales</a><br>
+		<a href="<?php echo "$ruta/panel/$user_get/reportes-extraordinarios"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte extra</a>
+
 
 		<br><br>
 	<?php	
@@ -78,6 +80,10 @@
 				  </button>
 			</div>	
 			<?php
+	}
+
+	if ($nav=="reportes-extraordinarios") {
+		 	include("panel_sys/reportes/extraordinario/principal_extraordinario.php");
 	}
 
 ?>

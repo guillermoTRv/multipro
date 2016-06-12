@@ -1,3 +1,5 @@
+
+
         $(function(){
                 $("#btn-alta-inmueble").click(function(){
                     var url="../../panel_sys/inmuebles/admin/crear/procesar_inmueble.php";
@@ -70,7 +72,7 @@
 
         $(function(){
           $(document).on("click","#btn-alta-cliente",function(){
-                    var url="../../panel_sys/crear_user/procesar_formCliente.php";
+                    var url="../../panel_sys/personal/admin/crear_cliente/procesar_formCliente.php";
                     $.ajax({
                         type:"POST",
                         url:url,
@@ -132,7 +134,7 @@
         $(document).on("change","#inmueble_slc",function(){
                    $("#inmueble_slc option:selected").each(function () {
                     elegid=$(this).val();
-                    $.post("../../panel_sys/crear_user/mostrar_supervisor.php", { elegid: elegid }, function(data){
+                    $.post("../../panel_sys/personal/admin/crear_guardia/mostrar_supervisor.php", { elegid: elegid }, function(data){
                     $("#supervisor").html(data);
                     
                 });
@@ -206,7 +208,7 @@
         /********ajax registro_es guardia***************************************/
         /***********************************************************************************************/
 
-         $(function(){
+        $(function(){
         $(document).on("click","#btn-registroGuardia",function(){
                     var url="../../panel_sys/registros_es/guardia/procesarRegistro_guardia.php";
                     $.ajax({
@@ -224,3 +226,108 @@
                     return false;
                 });
             });
+        /***********************************************************************************************/
+        /********ajax levantar reporte guardia***************************************/
+        /***********************************************************************************************/
+
+        $(function(){
+        $(document).on("click","#guardar_reporteGuardia",function(){
+                    var url="../../panel_sys/reportes/guardia/procesar_reporteGuardia.php";
+                    $.ajax({
+                        type:"POST",
+                        url:url,
+                        data:$("#form_reporte_guardia").serialize(),
+                        success:function(data){
+                            $("#mensaje_reporteGuardia").html(data);
+                        }
+
+                    });
+
+                    return false;
+                });
+        });
+
+
+
+        /***********************************************************************************************/
+        /********ajax levantar reporte general supervisor cliente***************************************/
+        /***********************************************************************************************/
+
+        $(function(){
+        $(document).on("click","#guardar_reporteGeneral",function(){
+                    var url="../../panel_sys/reportes/extraordinario/procesar_reporteCliente.php";
+                    $.ajax({
+                        type:"POST",
+                        url:url,
+                        data:$("#form_reporte_General").serialize(),
+                        success:function(data){
+                            $("#mensaje_reporteGeneral").html(data);
+                        }
+
+                    });
+
+                    return false;
+                });
+        });
+
+        /***********************************************************************************************/
+        /********Multi select cliente-inmuebles usuario***************************************/
+        /***********************************************************************************************/
+
+        $(document).on("change","#cliente_reporteCliente",function(){
+                   $("#cliente_reporteCliente option:selected").each(function () {
+                    cliente=$(this).val();
+                    $.post("../../panel_sys/reportes/extraordinario/multi_selectClienteAjax.php", { cliente: cliente }, function(data){
+                    $("#inmuebles_reporteCliente").html(data);
+                    
+                });
+           })
+        });
+
+        /***********************************************************************************************/
+        /********Multi select estado municipio zona inmueble***************************************/
+        /***********************************************************************************************/      
+        $(document).on("change","#estado_zona",function(){
+                   $("#estado_zona option:selected").each(function () {
+                    zonas=$(this).val();
+                    $.post("../../panel_sys/inmuebles/admin/crear/lista_zonas.php", { zonas: zonas }, function(data){
+                    $("#zona_zona").html(data);
+                    
+                });
+           })
+        });
+
+
+        /***********************************************************************************************/
+        /********Multi select estado municipio personal***************************************/
+        /***********************************************************************************************/      
+        $(document).on("change","#estado_ad",function(){
+                   $("#estado_ad option:selected").each(function () {
+                    municipio=$(this).val();
+                    $.post("../../panel_sys/personal/admin/crear_guardia/multiselect_estados.php", { municipio: municipio }, function(data){
+                    $("#municipio_ad").html(data);
+                    
+                });
+           })
+        });
+
+        /***********************************************************************************************/
+        /********Baja guardias ***************************************/
+        /***********************************************************************************************/      
+
+        $(function(){
+        $(document).on("click","#btn_bajaElementos",function(){
+                    var url="../../panel_sys/personal/admin/eliminar/procesar_bajaGuardia.php";
+                    $.ajax({
+                        type:"POST",
+                        url:url,
+                        data:$("#form_bajaElementos").serialize(),
+                        success:function(data){
+                            $("#mensaje_bajaElementos").html(data);
+                        }
+
+                    });
+
+                    return false;
+                });
+        });

@@ -28,7 +28,7 @@
                     <tbody>
         				<?php 
 							
-							$consultaInmuebles = "SELECT * FROM inmuebles WHERE empresa='$ClienteNumSubstr'";
+							$consultaInmuebles = "SELECT * FROM inmuebles WHERE empresa='$ClienteNumSubstr' order by id_inmueble asc";
 							$consultaInmuebles = mysqli_query($enlace,$consultaInmuebles);
 							while ($arrayInmueblesTable = mysqli_fetch_array($consultaInmuebles)) {
 							$id_inmueble      = $arrayInmueblesTable['id_inmueble']; 
@@ -39,9 +39,7 @@
 							$demarcacion      = $arrayInmueblesTable['demarcacion'];
 							$supervisor       = $arrayInmueblesTable['supervisor'];
 
-							$estado_repo      = $arrayInmueblesTable['estado_repo'];
-							if ($estado_repo == 'si') {global $color; $color = 'green';}
-							if ($estado_repo == 'no') {global $color; $color = '#DF0101';}
+							include("panel_sys/inmuebles/estado_repoInmueble.php");
 
 							?>
 							<tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>

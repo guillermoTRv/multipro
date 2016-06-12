@@ -4,7 +4,7 @@
 	}
 
 	if (isset($personal_user)) {
-		include("panel_sys/personal/cliente/datos_guardia.php");
+		include("panel_sys/personal/toda_la_info_guardia.php");
 	}
 
 	if (isset($supervisor_user)) {
@@ -20,13 +20,16 @@
 	}	
 
 	if (isset($datosInmuebles_nav)) {
-		include("panel_sys/inmuebles/cliente/datosInmuebles.php");
+		$inmuebleId_datos = $datosInmuebles_id;
+		include("panel_sys/inmuebles/toda_la_info_inmueble.php");
 	}
 
 	if (isset($servicios_nav)) {
 		include("panel_sys/servicios/cliente/servicios_cliente.php");
 	}
-
+	if (isset($reportes_nav)) {
+        include("panel_sys/reportes/reportes.php");
+    }
 
 	/*
 	$personalSupervisorNav = substr($nav,0,21);

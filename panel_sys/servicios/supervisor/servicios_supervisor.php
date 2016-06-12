@@ -12,7 +12,7 @@
                     </thead>
                     <tbody>
                       <?php 
-                        $serviciosSupervisor = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE supervisor='$id_personal' ORDER BY id_inmueble DESC";
+                        $serviciosSupervisor = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor FROM inmuebles WHERE supervisor='$id_personal' ORDER BY id_inmueble DESC";
                         $serviciosSupervisor = mysqli_query($enlace,$serviciosSupervisor);
                         while ($array = mysqli_fetch_array($serviciosSupervisor)) {
                               $id_inmueble   = $array['id_inmueble']; 
@@ -23,10 +23,9 @@
                               $num_interior  = $array['num_interior'];
                               $demarcacion   = $array['demarcacion'];
                               #revisar la codificacion de los campos en las bases de datos
-                              $estado_repo   = $array['estado_repo'];
+                              include("panel_sys/inmuebles/estado_repoInmueble.php");
                       
-                              if ($estado_repo == 'si') {global $color; $color = 'green';}
-                              if ($estado_repo == 'no') {global $color; $color = '#DF0101';}
+                              
                                 
                               ?>
                               <tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>
@@ -37,9 +36,16 @@
                                           <?php echo "<span class='glyphicon glyphicon-asterisk' style='color:$color;'><span id='$id_inmueble'style='font-size:.1em;color:rgba(0,0,0,0);'>$id_inmueble</span></span>"; ?>
                                   </strong>
                                 </td>
-                              </tr>
-
-                              <?php              
+                              </tr>      
+                              <?php
+                              echo "
+                                  <script>
+                                      function myFunction$id_inmueble() 
+                                        {
+                                            window.location='$ruta/panel/$user_get/inmuebles-datos-'+document.getElementById('$id_inmueble').innerHTML;
+                                        }
+                                  </script>
+                              ";              
                          } 
                       ?>
                     </tbody>

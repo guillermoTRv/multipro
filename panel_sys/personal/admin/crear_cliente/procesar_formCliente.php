@@ -1,5 +1,5 @@
 <?php 
-	include("../../pack_config.php");
+	include("../../../../pack_config.php");
 
 	$nombre      = sanitizar($_POST['nombre']); 
 	$apellido_p  = sanitizar($_POST['paterno']);   
@@ -56,7 +56,7 @@
 
 
 			else {
-				echo "Un usuario con los anteriores datos ya existe - error al insertar datos";
+				echo "<p class='texto_principal'>Un usuario con los anteriores datos ya existe - error al insertar datos</p>";
 			}
 
 

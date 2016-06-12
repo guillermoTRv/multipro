@@ -18,8 +18,10 @@
                  $apellido_m  =  $consultaArray['apellido_m'];
                  $usuario     =  $consultaArray['nombre_usuario'];
                  $fecha_bd    =  $consultaArray['fecha_registro_bd'];
-
                  $fecha       =  substr($fecha_bd,0,9);
+
+                 $type_userConsulta = "cliente";
+                 include("panel_sys/personal/admin/listar/estado_personalBasico.php");
 
                  ?> 
                  <tr>
@@ -29,7 +31,6 @@
                    <td><span class='glyphicon glyphicon-asterisk' style='color:green;'></td> 
                  </tr>
                  <?php
-
 
           }
         ?>

@@ -18,7 +18,7 @@
 			<p class='text_label'>Nombre del inmueble</p>
 			<select class='form-control select-sm_user' style='margin-top:-0px;' name='inmueble_slc' id='inmueble_slc'>
 				<option value=''>--</option>
-				<?php include("inmuebles_option.php"); ?>
+				<?php include("panel_sys/inmuebles_option.php"); ?>
 			</select>
 		</div>
 		<div class="col-md-4 espacio_input">

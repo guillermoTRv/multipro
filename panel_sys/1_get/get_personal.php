@@ -27,6 +27,12 @@
 	    $supervisor_user_id  = substr($nav,16,4);
 	}
 
+	$cliente_user_substr  = substr($nav,0,7); #se busca si la id es de un supervisor
+	if ($cliente_user_substr == "cliente") {
+	    $cliente_user     = "supervisor";
+	    $cliente_user_id  = substr($nav,13);
+	}
+
 	###############################################################
 	#get para cliente###########
 	###############################################################

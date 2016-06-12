@@ -1,12 +1,16 @@
 <?php 
 
-		if (isset($personal_nav)){
+		if (isset($personal_nav) and $nav!='personal_bajas'){
 			$rutaAgregar        = "$ruta/panel/$user_get/personal_bajas";
        		$complementoBaja     = "href='$rutaAgregar'";
        		$variableControllerBaja = 1;
 		}
-
-		
+		if ($nav=='personal_bajas') {
+			$rutaAgregar = "$ruta";
+			$complementoBaja = "href='#baja_elementoModal' data-toggle='modal' ";
+			$variableControllerBaja = 1;
+			include("panel_sys/personal/admin/eliminar/modal_ventana.php");
+		}
 	    
 	    if (isset($inmuebles_nav)) {
 	        $rutaAgregar        = "$ruta/panel/$user_get/inmuebles_bajas"; 

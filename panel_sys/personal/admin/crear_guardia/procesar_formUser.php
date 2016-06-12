@@ -8,7 +8,7 @@
 
 
 	if ($type_user == 'administrador') {
-			
+		
 		if ($controller == 0) {
 			
 			$name_txt          =   sanitizar($_POST['name_txt']);
@@ -29,7 +29,7 @@
 			$demarcacion       =   sanitizar($_POST['demarcacion_slc']);
 			$num_mobil         =   sanitizar($_POST['mobil']);
 			$inmueble_slc      =   sanitizar($_POST['inmueble_slc']);
-			$supervisor        =   sanitizar($_POST['supervisor']);
+			#$supervisor        =   sanitizar($_POST['supervisor']);
 			$costo             =   sanitizar($_POST['costo']);
 			$turno             =   sanitizar($_POST['turno']);
 			$hora_1            =   sanitizar($_POST['hora_1']);
@@ -37,7 +37,8 @@
 			$type_pago         =   sanitizar($_POST['type_pago']);
 			$inicio_contr      =   sanitizar($_POST['inicio_contrato']);		
 			$final_contr       =   sanitizar($_POST['finalizacion_contrato']);	 
-
+			$peso              =   sanitizar($_POST['peso']);
+			$estatura          =   sanitizar($_POST['estatura']);
 
 			if ($name_txt        !='' and 
 				$apell_uno       !='' and 
@@ -55,13 +56,15 @@
 				$demarcacion     !='' and 
 				$num_mobil       !='' and 
 				$inmueble_slc    !='' and 
-				$supervisor      !='' and 
+				#$supervisor      !='' and 
 				$costo           !='' and 
 				$hora_1          !='' and 
 				$hora_2          !='' and 
 				$type_pago       !='' and 
 				$inicio_contr    !='' and
-				$final_contr     !=''
+				$final_contr     !='' and
+				$peso            !='' and
+				$estatura        !=''
 				) {
 				#no dejar pasar la validacion de tipos de variables
 				#creo que sera necesario crear con un algoritmo el nombre del usuario
@@ -71,7 +74,43 @@
 				if (preg_match("/^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$/", $curp_txt)) {
 					$controllerUser = 1;
 				}
-				else{$controllerUser = 0; echo "Ingrese un curp valido";}
+				else{$controllerUser = 0; echo "<p class='texto_principal'>Ingrese un curp valido</p>";}
+				
+
+				if ($controllerUser == 1) {
+					if ($peso >= 44) {
+						$controllerUser = 1;
+					}
+					else{$controllerUser = 0; echo "<p class='texto_principal'>El peso esta por debajo del minimo requerido</p>";}
+				}
+
+				if  ($controllerUser == 1) {
+					
+					if ($peso <= 96) {
+						$controllerUser = 1;
+					}
+					else{$controllerUser = 0; echo "<p class='texto_principal'>El peso esta por arriba del maximo requerido</p>";}
+				}
+
+				if ($controllerUser == 1) {
+					if ($estatura >=1.50 ) {
+						$controllerUser = 1;
+					}
+					else{$controllerUser = 0; echo "<p class='texto_principal'>La altura esta por debajo del minimo requerido</p>";}
+				}
+
+
+				if  ($controllerUser == 1) {
+					
+					if ($estatura <= 1.80) {
+						$controllerUser = 1;
+					}
+					else{$controllerUser = 0; echo "<p class='texto_principal'>La altura esta por arriba del maximo requerido</p>";}
+				}
+				
+
+
+
 
 				if ($controllerUser == 1) {
 					$validacionConsulta = "SELECT * FROM usuarios_datos_basicos WHERE 
@@ -91,7 +130,7 @@
 					num_movil          = '$num_mobil' and
 					pass_xc            = '$pass_txt' and
 					inmueble_asign	   = '$inmueble_slc' and
-					supervisor         = '$supervisor' and
+					#supervisor         = '$supervisor' and
 					costo_serv         = '$costo' and
 					turno              = '$turno' and 
 					tipo_pago          = '$type_pago' and 
@@ -159,7 +198,7 @@
 							 pass_xc,
 							 
 							 inmueble_asign,
-							 supervisor,
+							 #supervisor,
 							 costo_serv,
 							 turno,
 							 horario_laboral,
@@ -170,7 +209,9 @@
 							 fecha_registro_bd,
 							 estado_repo,
 							 puesto,
-							 empresa
+							 empresa,
+							 peso,
+							 estatura
 							 ) VALUES(
 							 '$name_txt',
 							 '$apell_uno',
@@ -189,7 +230,7 @@
 							 'as',
 							 '$pass_txt',
 							 '$name_inmueble',
-							 '$supervisor',
+							  #'$supervisor',
 							 '$costo',
 							 '$turno',
 							 '12',
@@ -199,9 +240,11 @@
 							 '$fecha',
 							 'no',
 							 'guardia',
-							 '$id_cliente'
+							 '$id_cliente',
+							 '$peso',
+							 '$estatura'
 							 )";
-							$insertarDatosEjec = mysqli_query($enlace,$insertarDatos) or die("que onda");
+							$insertarDatosEjec = mysqli_query($enlace,$insertarDatos) or die("que s");
 
 							$buscarIdparaNombre  = "SELECT id_usuario FROM usuarios_datos_basicos WHERE curp = '$curp_txt'";
 							$buscarIdparaNombre  = mysqli_query($enlace,$buscarIdparaNombre);

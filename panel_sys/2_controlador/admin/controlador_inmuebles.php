@@ -19,4 +19,7 @@
     if (isset($cambioInmueble_supervisor)) {
         include("panel_sys/inmuebles/admin/editar_cambioSupervisor/editar_cambioSupervisor.php");
     }
+    if (isset($estado_checklistInmueble)) {
+        include("panel_sys/inmuebles/admin/editar/info_checklist.php");   
+    }
 ?>

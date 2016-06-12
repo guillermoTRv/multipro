@@ -23,11 +23,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel de uso</title>
     <link href="<?php echo $ruta ?>/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo $ruta ?>/css/css_panell.css" rel="stylesheet">
+    <link href="<?php echo $ruta ?>/css/css_panelll.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?php echo $ruta ?>/Iconos/apple-touch-icon-144-precomposed.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/bootstrap.js"></script>
-    <script src="<?php echo $ruta ?>/js/ajaxfo.js"></script>
+    <script src="<?php echo $ruta ?>/js/ajaxfoll.js"></script>
   </head>
   <body>
 

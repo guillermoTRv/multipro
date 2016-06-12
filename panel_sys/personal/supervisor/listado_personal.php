@@ -35,11 +35,10 @@
 	               $demarcacion  = $consultaArrayGuardias['demarcacion'];
 	               $turno        = $consultaArrayGuardias['turno'];      
 	               $inmueble     = $consultaArrayGuardias['inmueble_asign'];
-	               $estado       = $consultaArrayGuardias['estado_repo'];
 	               $edad         = $consultaArrayGuardias['edad'];
-	                  if ($estado == 'si') {global $color; $color = 'green';}
-	                  if ($estado == 'no') {global $color; $color = '#DF0101';}
-
+	                 
+	               $type_userConsulta = "guardia";
+                   include("panel_sys/personal/admin/listar/estado_guardia.php");	
 	                ?>
 	                    <tr style='margin-bottom:7px;' <?php echo "ondblclick='myFunction$id_usuario()'"; ?>>
 		                    <td><?php echo "$nombre_g $apellido_p $apellido_m" ?></td>

@@ -21,7 +21,7 @@
      class='glyphicon glyphicon-globe icon_izq'  <?php echo "style='color:$color_serv;'" ?>></span>
   </a>
   <a 
-     href="<?php echo "$ruta/panel/$user_get/reportes-normales" ?>">
+     href="<?php echo "$ruta/panel/$user_get/reportes" ?>">
      <span 
      <?php echo $popover; ?>
      data-content="Reportes"; 

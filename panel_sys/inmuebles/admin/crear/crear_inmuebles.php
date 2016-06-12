@@ -22,20 +22,16 @@
 			<input type='text' class='form-control input-sm_user' name='calle'>
 		</div>
 
-		<div class="col-md-3 espacio_input">
+		<div class="col-md-4 espacio_input">
 			<p style='text-align:center;' class='text_label'>Num-Interior</p>
 			<input type='text' class='form-control input-sm_user' name='num_int'>
 		</div>
 
-		<div class="col-md-3 espacio_input">
+		<div class="col-md-4 espacio_input">
 			<p style='text-align:center;' class='text_label'>Num-Exterior</p>
 			<input type='text' class='form-control input-sm_user' name='num_ext'>
 		</div>
 
-		<div class="col-md-2 espacio_input">
-			<p style='text-align:center;' class='text_label'>Codigo Postal</p>
-			<input type='text' class='form-control input-sm_user' name='postal'>
-		</div>
 	</div>
 
 	<div class="row" style='padding:10px;'>
@@ -45,41 +41,50 @@
 		</div>
 
 		<div class="col-md-4 espacio_input">
-			<p class='text_label'>Entidad Federativa</p>
-			<select class='form-control select-sm_user' style='margin-top:-0px;' name='entidad_slc'>
-				<option value=''></option>
-				<option value='Estado de Mexico'>Estado de Mexico</option>
-				<option value='Ciudad de Mexico'>Ciudad de Mexico</option>
-			</select>
+			<p style='text-align:center;' class='text_label'>Codigo Postal</p>
+			<input type='text' class='form-control input-sm_user' name='postal'>
 		</div>
+	</div>
+
+
+
+
+
+	<div class="row" style='padding:10px;'>
+		
 
 		<div class="col-md-4 espacio_input">
-			<p class='text_label'>Delegacion/municipio</p>
-			<select class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
-				<option value=''>--</option>
-				<option value='Atizapan'>Atizapan</option>
-				<option value='Tlalnepantla'>Tlalneplanta</option>
-				<option value='GAM'>GAM</option>
-				<option value='Azcapotzalco'>Azcapotzalco</option>
-				<option value='Miguel Hidaldo'>Miguel Hidalgo</option>
+			<p class='text_label'>Entidad Federativa</p>
+			<select class='form-control select-sm_user' id="estado_zona" style='margin-top:-0px;' name='entidad_slc'>
+				<option value=''></option>
+				<?php include("panel_sys/lista_entidadFederativa.php"); ?>
 			</select>
 		</div>
+		<div id='zona_zona'>
+			<div class="col-md-4 espacio_input">
+				<p class='text_label'>Delegacion/municipio</p>
+				<select class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
+					<option value=''>--</option>
+					<option value='Atizapan'>Atizapan</option>
+					<option value='Tlalnepantla'>Tlalneplanta</option>
+					<option value='GAM'>GAM</option>
+					<option value='Azcapotzalco'>Azcapotzalco</option>
+					<option value='Miguel Hidaldo'>Miguel Hidalgo</option>
+				</select>
+			</div>
+
+			<div class="col-md-4 espacio_input">
+				<p class="text_label">Zona</p>
+				<select name='zona_slc' class='form-control select-sm_user' style='margin-top:-0px;'>
+				<option value="">--</option>
+				</select>
+			</div>	
+		</div>
+		
 
 	</div>
 
-	<div class="row" style='margin-top:20px;padding:10px;'>
-		<div class="col-md-4 espacio_input">
-			<p class="text_label">Zona</p>
-			<select name='zona_slc' class='form-control select-sm_user' style='margin-top:-0px;' >
-				<option value="zona centro">Zona centro</option>
-				<option value="zona norte">Zona norte</option>
-				<option value="zona noreste">Zona noreste</option>
-				<option value="zona centro occidente">Zona centro occidente</option>
-				<option value="zona sureste">Zona sureste</option>
-				<option value="zona centro oriente">Zona centro oriente</option>
-			</select>
-		</div>	
-
+	<div class="row" style='margin-top:20px;padding:10px;'>	
 		<div class="col-md-8">
 			<p class='text_label'>*Referencias</p>
 			<textarea class="form-control" rows="3" name='referencia'></textarea >

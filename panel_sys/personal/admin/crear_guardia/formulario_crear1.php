@@ -79,18 +79,17 @@
 		</div>
 		<div class="col-md-4 espacio_input">
 			<p class="text_label">Entidad federativa</p>
-			<select class='form-control select-sm_user' name='entidad_slc' style='margin-top:-0px;'>
-				<option value=''>Entidad Federativa</option>
-				<option value='Estado de Mexico'>Estado de México</option>
-				<option value='Ciudad de Mexico'>Ciudad de México</option>
+			<select id="estado_ad" class='form-control select-sm_user' name='entidad_slc' style='margin-top:-0px;'>
+				<option value=''>--</option>
+				<?php include("panel_sys/lista_entidadFederativa.php"); ?>
 			</select>
 		</div>
 	</div>
 	<div class="row" style='margin-top:10px;padding:10px;'>
 		<div class="col-md-4 espacio_input">
 			<p class="text_label">Demarcación</p>
-			<select class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
-				<option value=''>Municipio o Delegacion</option>
+			<select id="municipio_ad" class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
+				<option value=''>--</option>
 				<option value='Atizapan de Zaragoza'>Atizapan de Zaragoza</option>
 				<option value='Alvaro Obregon'>Alvaro Obregon</option>
 			</select>
