@@ -33,6 +33,14 @@
 	    $cliente_user_id  = substr($nav,13);
 	}
 
+	$personal_bajas_substr  = substr($nav,0,14); #se busca si la id es de un supervisor
+	if ($personal_bajas_substr == "personal_bajas") {
+	    $personal_bajas     = "personal_bajas";
+	    $personal_bajas_id  = substr($nav,15);
+	    $ruta_select = "personal_bajas";
+	}
+
+
 	###############################################################
 	#get para cliente###########
 	###############################################################
@@ -51,11 +59,10 @@
 		$user_datos = 'User';
 	}
 
-	$nav_jefeTurno_substr = substr($nav,0,16);
-	if ($nav_jefeTurno_substr == "asignarJefeTurno") {
-		$nav_jefeTurno     = true;
-		$nav_jefeTurno_id  = substr($nav,17);
-		
+	$nav_jefeTurno_substr = substr($nav,0,7);
+	if ($nav_jefeTurno_substr == "Asignar") {
+		$nav_jefeTurno     = "Asignar";
+		$nav_jefeTurno_id  = substr($nav,8);
 	}
 
 

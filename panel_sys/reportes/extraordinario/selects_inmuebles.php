@@ -7,7 +7,7 @@
 				<select id="cliente_reporteCliente" class="form-control select-sm_user" style='margin:0px;' name='empresa_reportes'>
 					<option value="">--</option>
 					<?php 
-						$clientesConsulta = "SELECT id_cliente,name_cliente FROM clientes";
+						$clientesConsulta = "SELECT id_cliente,name_cliente FROM clientes order by id_cliente asc";
 						$clientesConsulta = mysqli_query($enlace,$clientesConsulta);
 						while ($clientesArray = mysqli_fetch_array($clientesConsulta)) {
 							      
@@ -37,7 +37,7 @@
 				<select class="form-control select-sm_user" style='margin:0px;' name='inmueble_reporte'>
 				<option value=''>--</option>
 				<?php
-					$inmueblesEncargados  = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor='$id_personal' ";
+					$inmueblesEncargados  = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor='$id_personal' order by id_inmueble asc";
 					$inmueblesEncargados  = mysqli_query($enlace,$inmueblesEncargados);
 					while ($arrayConsulta = mysqli_fetch_array($inmueblesEncargados)) {
 						   $id_inmueble   = $arrayConsulta['id_inmueble'];

@@ -1,3 +1,6 @@
+<?php 
+	$var_enviar = "$ruta/panel/admin/reportes&pep=12"
+?>
 <h4 class='texto_principal'>Generacion de <?php echo $nav."&nbsp;&nbsp;" ;date_default_timezone_set('America/Mexico_City'); echo $fecha_m = date("Y-m-d"); ?> </h4>
 <hr>
 
@@ -6,84 +9,32 @@
 	?>		
 		<a href="<?php echo "$ruta/panel/$user_get/reportes-asistencias"; ?>" class="a_limpia"><span class='glyphicon glyphicon-ok'></span> Generar reporte asistencia</a><br>
 		<a href="<?php echo "$ruta/panel/$user_get/reportes-historial"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte de historiales</a><br>
-		<a href="<?php echo "$ruta/panel/$user_get/reportes-extraordinarios"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte extra</a>
-
-
+		<?php 
+			if ($type_user=='administrador') {
+				# code...
+			}
+			else{
+				?>
+				<a href="<?php echo "$ruta/panel/$user_get/reportes-extraordinarios"; ?>" class="a_limpia"><span class='glyphicon glyphicon-file'></span> Generar reporte extra</a>
+				<?php	
+			}
+		?>
 		<br><br>
 	<?php	
 	}
 
 
 	if ($nav=="reportes-asistencias") {
-		?>
-			<div class="col-md-3">
-				<p class="texto_principal">Tipo de personal</p>
-				<select class='form-control select-sm_user' style='margin-top:0px;'>
-					<option>Guardias</option>
-				</select>
-			</div>
-			
-			<div class="col-md-3">
-				<p class="texto_principal">Inmuebles</p>
-				<select class='form-control select-sm_user' style='margin-top:0px;'>
-					<option>Guardias</option>
-				</select>
-			</div>
+		
+		include("panel_sys/reportes/repo_asistencia/form_generarReporteAsistencia.php");
 
-			<div class="col-md-3">
-				<p class="texto_principal">De:</p>
-				<input type='date/time' class='form-control input-sm_user' name='nacimiento_date'>
-			</div>
-
-			<div class="col-md-3">
-				<p class="texto_principal">A:</p>
-				<input type='date/time' class='form-control input-sm_user' name='nacimiento_date'>
-			</div>		
-
-			<div class="col-md-2" style='padding-top:24px;'>
-				  <button style='background-color:#e06000;color:white;' type="button" class="btn btn-default btn-xs">
-				  	Generar reporte
-				  </button>
-			</div>	
-
-		<?php
 	}
 	if ($nav=="reportes-historial") {
-			?>
-			<div class="col-md-3">
-				<p class="texto_principal"></p>
-				<select class='form-control select-sm_user' style='margin-top:0px;'>
-					<option>Guardias</option>
-				</select>
-			</div>
-			
-			<div class="col-md-3">
-				<p class="texto_principal">Inmuebles</p>
-				<select class='form-control select-sm_user' style='margin-top:0px;'>
-					<option>Guardias</option>
-				</select>
-			</div>
-
-			<div class="col-md-3">
-				<p class="texto_principal">De:</p>
-				<input type='date/time' class='form-control input-sm_user' name='nacimiento_date'>
-			</div>
-
-			<div class="col-md-3">
-				<p class="texto_principal">A:</p>
-				<input type='date/time' class='form-control input-sm_user' name='nacimiento_date'>
-			</div>		
-
-			<div class="col-md-2" style='padding-top:24px;'>
-				  <button style='background-color:#e06000;color:white;' type="button" class="btn btn-default btn-xs">
-				  	Generar reporte
-				  </button>
-			</div>	
-			<?php
+		include("panel_sys/reportes/repo_historial/form_generarReporteHistorial.php");
 	}
 
 	if ($nav=="reportes-extraordinarios") {
-		 	include("panel_sys/reportes/extraordinario/principal_extraordinario.php");
+		include("panel_sys/reportes/extraordinario/principal_extraordinario.php");
 	}
 
 ?>

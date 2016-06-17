@@ -65,12 +65,7 @@
 				<p class='text_label'>Delegacion/municipio</p>
 				<select class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
 					<option value=''>--</option>
-					<option value='Atizapan'>Atizapan</option>
-					<option value='Tlalnepantla'>Tlalneplanta</option>
-					<option value='GAM'>GAM</option>
-					<option value='Azcapotzalco'>Azcapotzalco</option>
-					<option value='Miguel Hidaldo'>Miguel Hidalgo</option>
-				</select>
+				</select>>
 			</div>
 
 			<div class="col-md-4 espacio_input">
@@ -84,13 +79,14 @@
 
 	</div>
 
-	<div class="row" style='margin-top:20px;padding:10px;'>	
-		<div class="col-md-8">
+	<div class="row" style='padding:10px;'>	
+		<div class="col-md-8 espacio_input">
 			<p class='text_label'>*Referencias</p>
 			<textarea class="form-control" rows="3" name='referencia'></textarea >
 		</div>	
 		<?php echo $toquen; ?>	
 	</div>
+	<br>
 
   </form>
 </div>

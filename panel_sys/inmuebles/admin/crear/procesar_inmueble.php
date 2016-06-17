@@ -25,46 +25,74 @@
 	 		$idEmpresa_Ejecutar = mysqli_query($enlace,$idEmpresa_Consulta) or die ("sss");
 	 		$idEmpresa_Array    = mysqli_fetch_array($idEmpresa_Ejecutar); 
 	 		$idEmpresa          = $idEmpresa_Array[0];
+
 			 	if ($validacion_n==0) {
 			 		
-			 		$insert = "INSERT INTO 
-			 				    inmuebles(
-			 				   	name_inmueble,
-			 				   	cliente,
-			 				   	calle,
-			 				   	colonia,
-			 				   	num_exterior,
-			 				   	num_interior,
-			 				   	codigo_postal,
-			 				   	entidad,
-			 				   	demarcacion,
-			 				   	zona,
-			 				   	supervisor,
-			 				   	fecha_registro_inmueble,
-			 				   	fecha_mod_inmueble,
-			 				   	estado_repo,
-			 				   	empresa,
-			 				   	referencia
-			 				   	)
-			 				   VALUES('$name_inmueble',
-			 				   	      '$cliente',
-			 				   	      '$calle',
-			 				   	      '$colonia',
-			 				   	      '$num_ext',
-			 				   	      '$num_int',
-			 				   	      '$postal',
-			 				   	      '$entidad',
-			 				   	      'Atizapan',
-			 				   	      '$zona',
-			 				   	      'Aun no cuenta',
-			 				   	      '$fecha',
-			 				   	      '$fecha',
-			 				   	      'no',
-			 				   	      '$idEmpresa',
-			 				   	      '$referencia'
-			 				   	      )";
-			 		$insert = mysqli_query($enlace,$insert) or die("que onda");
-			 		echo "<p class='texto_principal'>Los datos fueron agregados correctamente - Un nuevo inmueble se ha dado de alta</p>";
+			 		$validacion_two = "SELECT id_inmueble FROM inmuebles WHERE name_inmueble = '$name_inmueble'";
+	 				$validacion_two = mysqli_query($enlace,$validacion_two);
+	 				$validacion_two = mysqli_num_rows($validacion_two);
+
+	 				if ($validacion_two == 0) {
+	 					$insert = "INSERT INTO 
+					 				    inmuebles(
+					 				   	name_inmueble,
+					 				   	cliente,
+					 				   	calle,
+					 				   	colonia,
+					 				   	num_exterior,
+					 				   	num_interior,
+					 				   	codigo_postal,
+					 				   	entidad,
+					 				   	demarcacion,
+					 				   	zona,
+					 				   	supervisor,
+					 				   	fecha_registro_inmueble,
+					 				   	fecha_mod_inmueble,
+					 				   	estado_repo,
+					 				   	empresa,
+					 				   	referencia
+					 				   	)
+					 				   VALUES('$name_inmueble',
+					 				   	      '$cliente',
+					 				   	      '$calle',
+					 				   	      '$colonia',
+					 				   	      '$num_ext',
+					 				   	      '$num_int',
+					 				   	      '$postal',
+					 				   	      '$entidad',
+					 				   	      '$demarcacion',
+					 				   	      '$zona',
+					 				   	      'Aun no cuenta',
+					 				   	      '$fecha',
+					 				   	      '$fecha',
+					 				   	      'no',
+					 				   	      '$idEmpresa',
+					 				   	      '$referencia'
+					 				   	      )";
+					 		$insert = mysqli_query($enlace,$insert) or die("que onda");
+					 		echo "<p class='texto_principal'>Los datos fueron agregados correctamente - Un nuevo inmueble se ha dado de alta</p>";
+					 		$id_Inmueble_Cons = "SELECT id_inmueble FROM inmuebles WHERE name_inmueble = '$name_inmueble'";
+	 						$id_Inmueble_Cons = mysqli_query($enlace,$id_Inmueble_Cons) or die("no");
+	 						$id_Inmueble_Cons = mysqli_fetch_array($id_Inmueble_Cons);
+	 						$id_Inmueble_Cons = $id_Inmueble_Cons['id_inmueble'];
+
+	 						$consultaCheck = "SELECT categoria,situacion_name FROM check_list WHERE id_empresa='$idEmpresa'";
+							$consultaCheck = mysqli_query($enlace,$consultaCheck) or die("noss");
+							while ($arrayCheck     = mysqli_fetch_array($consultaCheck)) {
+								   $categoria      = $arrayCheck['categoria'];
+								   $situacion_name = $arrayCheck['situacion_name'];
+
+								   $insertarCheckEstado = "INSERT INTO estados_checklist_inmuebles(id_inmueble,categoria,situacion_name,status,fecha_registro_bd) values('$id_Inmueble_Cons','$categoria','$situacion_name','sin novedad','$fecha')";
+								   $insertarCheckEstado = mysqli_query($enlace,$insertarCheckEstado) or die("no"); 
+							}
+
+
+
+	 				}	
+	 				else{
+	 					echo "<p class='texto_principal'>El nombre que estas introduciendo para el inmueble ya esta registrado</p>";
+	 				}
+					 		
 			 	}
 			 	else{
 			 		echo "<p class='texto_principal'>Estas introduciendo los mismos datos</p>";

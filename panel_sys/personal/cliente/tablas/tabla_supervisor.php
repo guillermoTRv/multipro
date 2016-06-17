@@ -1,5 +1,12 @@
 <?php 
-
+  session_start();
+  $type_user       =  $_SESSION['type_user'];
+  if ($type_user == 'administrador') {
+      $var_ruta = "admin";
+  } 
+  if ($type_user == 'cliente') {
+      $var_ruta = "cliente";
+  }
   $consultaInmSupervisor = "SELECT supervisor FROM inmuebles WHERE name_inmueble='$name_inmueble'";
   $consultaInmSupervisor = mysqli_query($enlace,$consultaInmSupervisor);
   $consultaInmSupervisor = mysqli_fetch_array($consultaInmSupervisor);
@@ -25,11 +32,10 @@
            $num_ext      = $consultaArray['num_exterior'];
            $demarcacion  = $consultaArray['demarcacion'];
            $inmueble     = $consultaArray['inmueble_asign'];
-           $estado       = $consultaArray['estado_repo'];
            $edad         = $consultaArray['edad'];
            
-           if ($estado == 'si') {global $color; $color = 'green';}
-           if ($estado == 'no') {global $color; $color = '#DF0101';}
+           $type_userConsulta = "supervisor";
+           include("../../personal/estado_personalBasico.php");
 
               ?>
                   <tr style='margin-bottom:7px;' <?php echo "ondblclick='myFunction$id_usuario()'"; ?>>
@@ -48,7 +54,7 @@
                        <script>
                          function myFunction$id_usuario() 
                          {                    
-                             window.location='$ruta/panel/cliente/supervisor-User-'+document.getElementById('$id_usuario').innerHTML;
+                             window.location='$ruta/panel/$var_ruta/supervisor-User-'+document.getElementById('$id_usuario').innerHTML;
                                            }
                        </script>
                        "; ?>

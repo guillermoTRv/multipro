@@ -42,7 +42,7 @@
 		          <tr>   
 		            <th style='color:white;'>Nombre</th>
 		            <th style='color:white;'>Domicilio</th>
-		            <th style='color:white;'>Inmueble</th>
+		            <th style='color:white;'>Inmuebles</th>
 		            <th style='color:white;'>#</th>
 		          </tr>
 		       </thead>
@@ -90,7 +90,6 @@
 		       <thead>
 		          <tr>   
 		            <th style='color:white;'>Nombre</th>
-		            <th style='color:white;'>Edad</th>
 		            <th style='color:white;'>Domicilio</th>
 		            <th style='color:white;'>Inmuebles</th>
 		            <th style='color:white;'>#</th>

@@ -1,6 +1,8 @@
 <?php
 	include("../../../pack_config.php"); 
 	session_start();
+	$fecha_rango = date("Y-m-d");
+
 	$id_personal = $_SESSION['id_usuario'];
 	$consultaInmueble = "SELECT inmueble_asign FROM usuarios_datos_basicos WHERE id_usuario='$id_personal'";
 	$consultaInmueble = mysqli_query($enlace,$consultaInmueble) or die("noa");
@@ -26,14 +28,18 @@
 	                                  hora_salida,
 	                                  estado_registro,
 	                                  inmueble,
-									  personal
+									  personal,
+									  fecha_rango,
+									  cumplio_repo
 	                                  ) 
 	                           VALUES('$id_personal',
 	                                  '$fecha',
 	                                  '$fecha',
 	                                  'entrada',
 	                                  '$id_inmueble',
-	                                  'guardia'
+	                                  'guardia',
+	                                  '$fecha_rango',
+	                                  '--'
 	                                  )";
 		$registrarEntrada = mysqli_query($enlace,$registrarEntrada) or die("error registro");
 

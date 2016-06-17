@@ -1,5 +1,5 @@
 <?php 
-    if ($nav == 'inmuebles_listado' or isset($inmuebles_zonaid)) {
+    if ($nav == 'inmuebles_listado') {
         include("panel_sys/inmuebles/admin/listado_inmuebles.php");
     }
 
@@ -11,7 +11,7 @@
         include("panel_sys/inmuebles/admin/crear/crear_inmuebles.php"); 
     }
     if (isset($inmuebles_datos)) {
-        include("panel_sys/inmuebles/admin/editar/principal_editarInmueble.php");
+        include("panel_sys/inmuebles/toda_la_info_inmueble.php");
     }
     if (isset($cambioInmueble_datosGenerales)) {
         include("panel_sys/inmuebles/admin/editar_datosGenerales/editar_datosGenerales.php");

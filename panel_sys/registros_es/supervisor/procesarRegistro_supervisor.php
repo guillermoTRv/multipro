@@ -4,7 +4,7 @@
 	
 	session_start();
 	$id_personal           =  $_SESSION['id_usuario'];
-
+	$fecha_rango           =  date("Y-m-d"); 
 	#el conteo debera de contemplar tambien el valor de entrada para estado registro
 	$busquedaRegistroCountC = "SELECT * FROM registros_es WHERE id_personal=$id_personal and estado_registro ='pendiente' ORDER BY id_registro_es DESC";
 	$busquedaRegistroCountE = mysqli_query($enlace,$busquedaRegistroCountC) or die("error consulta");
@@ -31,14 +31,19 @@
 	                                  hora_salida,
 	                                  estado_registro,
 	                                  inmueble,
-									  personal
+									  personal,
+									  fecha_rango,
+									  cumplio_repo
 	                                  ) 
 	                           VALUES('$id_personal',
 	                                  '$fecha',
 	                                  '$fecha',
 	                                  'entrada',
 	                                  '$inmuebleRegistro',
-	                                  'supervisor')";
+	                                  'supervisor',
+	                                  '$fecha_rango',
+	                                  '--'
+	                                  )";
 	$registrarEntrada = mysqli_query($enlace,$registrarEntrada) or die("error registro");
 
 	$mensaje   = $aviso."<h4 class='texto_principal'>Se ha registrado la entrada - que tenga un buen día de trabajo</h4><br>";

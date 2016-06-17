@@ -1,5 +1,5 @@
 <?php
-    if (isset($personal_nav)){
+        if (isset($personal_nav) and empty($personal_bajas)){
             ?>
                 <select class="form-control select-sm_user" style='margin:0px;' id='consulta-lista-personal'>
                      <option value='guardias'     <?php selected("personal-guardias");     ?>>Guardias</option>
@@ -9,9 +9,24 @@
             <?php
         }
 
-        if (isset($inmuebles_nav) or isset($inmuebles_zonaid)) {
-            include("panel_sys/varias_funciones/selects/select_zonaInmueble.php");
+        if (isset($personal_bajas)) {
+            ?>
+                <select class="form-control select-sm_user" style='margin:0px;'>
+                    
+                </select>
+            <?php   
         }
+
+
+        if (isset($inmuebles_nav) or isset($inmuebles_zonaid)) {
+            #include("panel_sys/varias_funciones/selects/select_zonaInmueble.php");
+        }
+
+        if (isset($inmuebles_bajasNav)) {
+            include("panel_sys/varias_funciones/selects/select_empresasCheck.php");
+        }
+
+
         if (isset($check_nav) or isset($baja_check)) {
             include("panel_sys/varias_funciones/selects/select_empresasCheck.php");
         }

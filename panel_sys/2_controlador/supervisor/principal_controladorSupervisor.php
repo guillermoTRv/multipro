@@ -12,6 +12,7 @@
 	    include("panel_sys/personal/toda_la_info_guardia.php");
 	}
 
+
 	if (isset($nav_jefeTurno)) {
 		include("panel_sys/personal/supervisor/jefeTurno/jefeTurno_personal.php");	
 	}
@@ -21,7 +22,6 @@
 	}
 
 	if (isset($inmuebles_datos)) {
-		$inmuebleId_datos = $datosInmuebles_id;
         include("panel_sys/inmuebles/toda_la_info_inmueble.php");
     }
 

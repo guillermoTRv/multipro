@@ -14,14 +14,16 @@
   }
 
   else{
-    ?>
+    ?>  <p class="texto_principal">Eliminar checklist para <?php echo $empresaSubstr ?></p>
+        <form id="form_bajaCheck">
+        <?php echo "<input type='hidden' name='empresaCheck' value='$idEmpresaCheck'>"; ?>
         <table class="table table-striped " style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
                      <thead>
-                        <tr>   
-                          <th>--</th>
-                          <th style='color:white;font-size:1.1em;'>Categoria</th>
-                          <th style='color:white;font-size:1.1em;'>Situhhhhhhhación</th>
-                          <th style='color:white;font-size:1.1em;'>Status</th>
+                        <tr style='color:white;font-size:1.1em;'>   
+                          <th>----</th>
+                          <th>Categoria</th>
+                          <th>Situación</th>
+                          <th>Empresa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,16 +31,21 @@
                           $listadoCheckConsulta = "SELECT * FROM check_list WHERE id_empresa = '$idEmpresaCheck'"; 
                           $listadoCheckEjecutar = mysqli_query($enlace,$listadoCheckConsulta);
                           while ( $chekArray = mysqli_fetch_array($listadoCheckEjecutar)) {
+                            $id_checklist = $chekArray['id_checklist'];
                             $categoria = $chekArray['categoria'];
                             $situacion = $chekArray['situacion_name'];
-                            $status    = $chekArray['status'];
 
                             ?>
                               <tr>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                  <?php echo "
+                                      <input type='checkbox' name='check-$id_checklist' value='$id_checklist'>
+                                  "; 
+                                  ?>
+                                </td>
                                 <td><?php echo $categoria; ?></td>
                                 <td><?php echo $situacion; ?></td>
-                                <td><?php echo $status; ?></td>
+                                <td><?php echo $empresaSubstr;?></td>
                               </tr>
                             <?php
 
@@ -46,6 +53,7 @@
                         ?>
                     </tbody>
         </table>
+        </form>
     <?php
 
   }

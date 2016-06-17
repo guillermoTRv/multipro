@@ -1,5 +1,5 @@
 <div class="modal fade" id="list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style='margin-top:10%;'>
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="width:900px">
     <div class="modal-content" style='background-color:#353637;border:1px solid #e06000;color:white;'>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -17,7 +17,7 @@
 	  		$categoria = $arrayCategoria['categoria'];
 	  		$n++;
 	  		?>
-		  	  <p class="texto_principal"><?php echo $categoria ?></p>
+		  	  <p class="texto_principal">Categoria: <?php echo $categoria ?></p>
 				<div class="row" style="margin:5px;">
 					<?php 
 						$consultaCheck = "SELECT * FROM check_list WHERE id_empresa='$empresaAsign' and categoria='$categoria'";
@@ -26,12 +26,13 @@
 					    while ($arrayCheck = mysqli_fetch_array($consultaCheck)) {
 					    	$check_list = $arrayCheck['situacion_name'];
 					    	$i++;
-					    	?>		        
-					    		<label>
-							      <input type="checkbox" value='<?php echo $check_list ?>' name="<?php echo "situacion".$n.$i ?>"  ><?php echo $check_list.$n.$i ?> | <small>status</small> ->  
+					    	?>	        
+					    		<label style="width:200px">
+							      <input type="checkbox" value='<?php echo $check_list ?>' name="<?php echo "situacion".$n.$i ?>"  ><?php echo "&nbsp;".$check_list ?>   
 							    </label>  
 
 							    <label>
+							      | <small>status</small> ->
 							      <input type="checkbox" value='sin novedad' name="<?php echo "sin".$n.$i ?>"> Sin novedad ||
 							    </label>  
 

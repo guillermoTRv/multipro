@@ -16,13 +16,18 @@
 	$fecha_inicio     = $userArray['fecha_inicio_contrato'];
 	$supervisor       = $userArray['supervisor'];
 	$tipo_pago        = $userArray['tipo_pago'];
+
+	$nombre_usuario_sistema = $userArray['usuario'];
+	$mobil = $userArray['num_movil'];   
 ?>
 
-	<p style='color:#f2f2f2'>Nombre del elemento: <?php echo $nombre_usuario."&nbsp;".$apellido_p."&nbsp".$apellido_m ?> &nbsp;&nbsp; Inmueble asignado: <?php echo $inmueble; ?></p>
+	<p style='color:#f2f2f2'>Nombre del elemento: <?php echo $nombre_usuario."&nbsp;".$apellido_p."&nbsp".$apellido_m ?></p>
 	<p style='color:#f2f2f2'>Domicilio <?php echo $calle."&nbsp;".$colonia."&nbsp;".$num_exterior."&nbsp;".$entidad; ?></p>
+	<p style="color:#f2f2f2;">Nombre de usuario: <?php echo $nombre_usuario_sistema ?></p>
 
 	<p style="color:#f2f2f2;">Fecha de ingreso: <?php echo $fecha_inicio ?></p>
 	<p style="color:#f2f2f2;">Tipo de pago <?php echo $tipo_pago ?></p>
+	<p style="color:#f2f2f2;">Número de telefono: <?php echo $mobil ?></p>
 	<ul style="color:white;">
 		<?php 
 			$inmuebles_super = "SELECT * FROM inmuebles WHERE supervisor='$supervisor_user_id' order by id_inmueble asc";

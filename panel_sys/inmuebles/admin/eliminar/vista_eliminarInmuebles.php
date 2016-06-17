@@ -7,7 +7,7 @@
 
   else{
     ?>
-
+<form id='form_inmueblesBaja' method="POST" enctype="multipart/form-data">
 <table class="table table-striped" style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
                      <thead>
                         <tr>   
@@ -19,7 +19,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <?php                         $inmuebles_c = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE empresa='$getEmpresa' ORDER BY id_inmueble DESC";
+                      <?php
+                        $id_cliente = "SELECT id_cliente FROM clientes WHERE name_get='$inmuebles_bajasNavId'";
+                        $id_cliente = mysqli_query($enlace,$id_cliente);
+                        $id_cliente = mysqli_fetch_array($id_cliente);
+                        $id_cliente = $id_cliente['id_cliente'];
+                        echo "<input type='hidden' value='$id_cliente' name='cliente_empresa'>";
+
+
+                        $inmuebles_c = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE empresa='$id_cliente' ORDER BY id_inmueble ASC";
                         $inmuebles_e = mysqli_query($enlace,$inmuebles_c);
                         while ($array = mysqli_fetch_array($inmuebles_e)) {
                               $id_inmueble   = $array['id_inmueble']; 
@@ -59,7 +67,9 @@
                                 
                               ?>
                               <tr <?php echo "ondblclick='myFunction$id_inmueble()'"; ?>>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                  <?php echo "<input type='checkbox' name='inmueble-$id_inmueble' value='$id_inmueble'>" ?>
+                                </td>
                                 <td><?php echo $nombre ?></td>
                                 <td><?php echo $calle."&nbsp;".$num_exterior."&nbsp;".$colonia."&nbsp;".$demarcacion ?></td>
                                 <td><?php echo $supervisorTable; ?></td>
@@ -84,6 +94,7 @@
                       ?>
                     </tbody>
 </table>
+</form>
 <?php
-  }
+  }include("panel_sys/inmmuebles/admin/eliminar/modal_ventanaInm.php");
 ?>

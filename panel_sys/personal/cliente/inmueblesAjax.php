@@ -3,10 +3,10 @@
 	include("../../../sanitizar.php");
 	include("../../../ruta.php");
 	$varPost        =   sanitizar($_POST['personal']);
-	echo $typePersonal   =   substr($varPost, 0,1);
+	$typePersonal   =   substr($varPost, 0,1);
 	$id_cliente     =   substr($varPost, 2);
 
-	if ($typePersonal == 1 || $typePersonal == 2) {
+	if ($typePersonal == 1 or $typePersonal == 2) {
 
 		
 		$listadoInmuebles = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE empresa='$id_cliente' order by id_inmueble asc";

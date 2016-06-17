@@ -8,19 +8,18 @@
 	}
 
 	if (isset($supervisor_user)) {
-		include("panel_sys/personal/cliente/datos_supervisores.php");
+		include("panel_sys/personal/admin/info_personal/informacion_supervisor.php");
 	}
 
 	if (isset($personalSupervisorNavCliente)) {
 		include("panel_sys/personal/cliente/listado_personalSupervisor.php");
 	}
 
-	if (isset($inmuebles_nav)) {
+	if ($nav == 'inmuebles_listado') {
 		include("panel_sys/inmuebles/cliente/listado_inmueblesCliente.php");		
 	}	
 
-	if (isset($datosInmuebles_nav)) {
-		$inmuebleId_datos = $datosInmuebles_id;
+	if (isset($inmuebles_datos)) {
 		include("panel_sys/inmuebles/toda_la_info_inmueble.php");
 	}
 

@@ -12,7 +12,7 @@
                     </thead>
                     <tbody>
                       <?php 
-                        $serviciosSupervisor = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor FROM inmuebles WHERE supervisor='$id_personal' ORDER BY id_inmueble DESC";
+                        $serviciosSupervisor = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor FROM inmuebles WHERE supervisor='$id_personal' ORDER BY id_inmueble ASC";
                         $serviciosSupervisor = mysqli_query($enlace,$serviciosSupervisor);
                         while ($array = mysqli_fetch_array($serviciosSupervisor)) {
                               $id_inmueble   = $array['id_inmueble']; 

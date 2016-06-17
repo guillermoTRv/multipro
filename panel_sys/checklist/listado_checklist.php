@@ -15,12 +15,16 @@
 
   if($nav != 'check_baja'){
     ?>
+     
+        <p class="texto_principal">
+          Checklist para <?php echo $empresaSubstr; ?>
+        </p>
         <table class="table table-striped " style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
                      <thead>
-                        <tr>   
-                          <th style='color:white;font-size:1.1em;'>Categoria</th>
-                          <th style='color:white;font-size:1.1em;'>Situación</th>
-                          <th style='color:white;font-size:1.1em;'>Status</th>
+                        <tr style='color:white;font-size:1.1em;'>   
+                          <th>Categoria</th>
+                          <th>Situación</th>
+                          <th>Empresa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,13 +34,11 @@
                           while ( $chekArray = mysqli_fetch_array($listadoCheckEjecutar)) {
                             $categoria = $chekArray['categoria'];
                             $situacion = $chekArray['situacion_name'];
-                            $status    = $chekArray['status'];
-
                             ?>
                               <tr>
                                 <td><?php echo $categoria; ?></td>
                                 <td><?php echo $situacion; ?></td>
-                                <td><?php echo $status; ?></td>
+                                <td><?php echo $empresaSubstr ?></td>
                               </tr>
                             <?php
 

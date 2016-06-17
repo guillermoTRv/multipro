@@ -53,7 +53,7 @@
 			      status,
 			      fecha_registro_bd) 
 			     VALUES
-			     ('1','$id_personal','$type_user','$texto','pendiente','$fecha')";
+			     ('$inmueble','$id_personal','$type_user','$texto','pendiente','$fecha')";
 			$insertReporte = mysqli_query($enlace,$insertReporte) or die("no");
 			?>
 			<button disabled style='background-color:#e06000;color:white;margin-top:20px' type="button" class="btn btn-default btn-xs" id="guardar_reporteGeneral">

@@ -1,6 +1,6 @@
 <?php 
 	echo "<option value=''> -- </option>";
-	$inmueblesSupervisor = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor = '$id_personal' ";
+	$inmueblesSupervisor = "SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor = '$id_personal' order by id_inmueble ASC";
 	$inmueblesSupervisor = mysqli_query($enlace,$inmueblesSupervisor);
 	while ($arrayConsulta = mysqli_fetch_array($inmueblesSupervisor)) {
 			

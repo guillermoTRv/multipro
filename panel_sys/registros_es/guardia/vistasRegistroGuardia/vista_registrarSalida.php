@@ -15,7 +15,9 @@
               <form id="form-salidaSupervisor" method="post" enctype="multipart/form-data">
                   <?php echo $toquen; ?>
                   <?php echo "<input type='hidden' name='id_es' value='$id_registro_es'>"; ?>
-                  <a style='width:170px;font-size:1.2em;' id="btn-salidaSupervisor" class='btn btn-sm btn-ind'> Registrar salida </a>
+                  <div id="habilitar_btnSalir">
+                    <a style='width:170px;font-size:1.2em;' class='btn btn-sm btn-ind' disabled> Registrar salida </a>
+                  </div>
               </form>
         </div>
 </div>

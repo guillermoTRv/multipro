@@ -13,9 +13,9 @@
 	$id_inmueble = $consultaId['id_inmueble'];
 
 
-	for ($n=1; $n <=9 ; $n++) { 
+	for ($n=1; $n <=20 ; $n++) { 
 		 
-		 for ($i=0; $i <=9 ; $i++) { 
+		 for ($i=0; $i <=15 ; $i++) { 
 		 	$categoria    = "categoria".$n.$i;
 		 	$situacion    = "situacion".$n.$i;
 		 	$sin_novedad  = "sin".$n.$i;
@@ -27,7 +27,7 @@
 		 	$repo_novedadPost = $_POST[$repo_novedad];
 
 		 	if ($situacionPost!='' and $categoriaPost!='') {
-
+		 		$user = 1;
 		 		if ($sin_novedadPost=='' and $repo_novedadPost=='') {
 		 			$status = "sin novedad";
 		 		}		 		
@@ -41,25 +41,44 @@
 				 	$status = $repo_novedadPost;	
 				} 	 		
 
-				echo "<br>".$situacionPost;
-				echo "<br>".$status;
-				echo "<br>".$categoriaPost;
+				$situacionPost;
+				$status;
+				$categoriaPost;
 
 				$insertRepo = "INSERT INTO reportes_checklist(credencial,categoria,situacion_check,status,guardia,fecha_registro_bd) VALUES('--','$categoriaPost','$situacionPost','$status','$id_personal','$fecha')";
-				$insertRepo = mysqli_query($enlace,$insertRepo) or die("no");	
+				#$insertRepo = mysqli_query($enlace,$insertRepo) or die("no");	
 
 				$cambioEstado = "UPDATE estados_checklist_inmuebles SET status='$status',fecha_registro_bd='$fecha' WHERE id_inmueble = '$id_inmueble' and categoria='$categoriaPost' and situacion_name='$situacionPost'"; 
-				$cambioEstado = mysqli_query($enlace,$cambioEstado) or die("no");
-
-
+				#$cambioEstado = mysqli_query($enlace,$cambioEstado) or die("no");
 
 			}
 			else{
-				#pos no hay
+				
 			}
 		 	
 		 }
 
+	}
+
+	if ($user==1) {
+
+		$ultimoRegistro = "SELECT id_registro_es FROM registros_es WHERE id_personal ='$id_personal' order by id_registro_es desc";
+		$ultimoRegistro = mysqli_query($enlace,$ultimoRegistro) or die("nop");
+		$ultimoRegistro = mysqli_fetch_array($ultimoRegistro);
+		$ultimoRegistro = $ultimoRegistro['id_registro_es'];
+
+		$cumplio_repo = "UPDATE registros_es SET cumplio_repo='si' WHERE id_personal='$id_personal' and id_registro_es='$ultimoRegistro'";
+		$cumplio_repo = mysqli_query($enlace,$cumplio_repo) or die("no"); 
+
+
+		$habilitar ="<a style='width:170px;font-size:1.2em;' id='btn-salidaSupervisor' class='btn btn-sm btn-ind'> Registrar salida </a>";
+
+		$respuesta=[
+				'uno'   => "El registro del checklist ah sido creado de manera exitosa",
+				'dos'   => $habilitar,
+			];
+
+			echo json_encode($respuesta);
 	}
 
 

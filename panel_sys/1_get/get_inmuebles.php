@@ -5,8 +5,9 @@
 		       
 		       $inmuebles_bajasSubstr = substr($nav,0,15);
 		       if ($inmuebles_bajasSubstr == "inmuebles_bajas") {
-		       	   $inmuebles_bajasNav =  "inmuebles_bajas";
-		       	   $ruta_select        =  "inmuebles_bajas";
+		       	   $inmuebles_bajasNav     =  "inmuebles_bajas";
+		       	   $inmuebles_bajasNavId   =  substr($nav,16);
+		       	   $ruta_select            =  "inmuebles_bajas";
 		       }
 		       else{
 		       	   if($type_user=='administrador'){$ruta_select     =  "zona-inmuebles";}
@@ -47,10 +48,12 @@
 
 
 		 ########cliente########
-		 $datosInmuebles_substr = substr($nav,0,14);
+		 /*$datosInmuebles_substr = substr($nav,0,14);
 		 if ($datosInmuebles_substr == "datosInmuebles") {
 		 	 $datosInmuebles_nav = "datosInmuebles";
 		 	 $datosInmuebles_id = substr($nav,15);
-		 }
+		 }*/
+
+		 
 
 ?>
