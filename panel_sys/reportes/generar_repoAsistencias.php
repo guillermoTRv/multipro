@@ -3,10 +3,10 @@
 	include("../../ruta.php");
 	include("../../sanitizar.php");
 
-	echo $type_userRepo = sanitizar($_POST['type_userRepo']);
-	echo $inmueble = sanitizar($_POST['inmueble']);
-	echo $fechaUno = sanitizar($_POST['fechaUno']);
-	echo $fechaDos = sanitizar($_POST['fechaDos']);
+	$type_userRepo = sanitizar($_POST['type_userRepo']);
+	$inmueble = sanitizar($_POST['inmueble']);
+	$fechaUno = sanitizar($_POST['fechaUno']);
+	$fechaDos = sanitizar($_POST['fechaDos']);
 
 
 	/*

@@ -18,14 +18,17 @@
 	$tipo_pago        = $userArray['tipo_pago'];
 
 	$nombre_usuario_sistema = $userArray['usuario'];
-	$mobil = $userArray['num_movil'];   
+	$mobil = $userArray['num_movil']; 
+
+	$curp  = $userArray['curp'];  
 ?>
+		<p style='color:#f2f2f2'>Nombre del elemento: <?php echo $nombre_usuario."&nbsp;".$apellido_p."&nbsp".$apellido_m ?> &nbsp;&nbsp; Inmueble asignado: <?php echo $inmueble; ?></p>
+		<p style='color:#f2f2f2'>Domicilio <?php echo $calle."&nbsp;".$colonia."&nbsp;".$num_exterior."&nbsp;".$entidad; ?></p>
+		<p style="color:#f2f2f2;">Nombre de usuario: <?php echo $nombre_usuario_sistema ?></p>
 
-	<p style='color:#f2f2f2'>Nombre del elemento: <?php echo $nombre_usuario."&nbsp;".$apellido_p."&nbsp".$apellido_m ?> &nbsp;&nbsp; Inmueble asignado: <?php echo $inmueble; ?></p>
-	<p style='color:#f2f2f2'>Domicilio <?php echo $calle."&nbsp;".$colonia."&nbsp;".$num_exterior."&nbsp;".$entidad; ?></p>
-	<p style="color:#f2f2f2;">Nombre de usuario: <?php echo $nombre_usuario_sistema ?></p>
-
-	<p style="color:#f2f2f2;">Horario de labores: <?php echo $horario_laboral ?></p>
-	<p style="color:#f2f2f2;">Fecha de ingreso: <?php echo $fecha_inicio ?></p>
-	<p style="color:#f2f2f2;">Tipo de pago: <?php echo $tipo_pago ?></p>
-	<p style="color:#f2f2f2;">Número de telefono: <?php echo $mobil ?></p>
+		<p style="color:#f2f2f2;">Horario de labores: <?php echo $horario_laboral ?></p>
+		<p style="color:#f2f2f2;">Fecha de ingreso: <?php echo $fecha_inicio ?></p>
+		<p style="color:#f2f2f2;">Tipo de pago: <?php echo $tipo_pago ?></p>
+		<p style="color:#f2f2f2;">Número de telefono: <?php echo $mobil ?></p>	
+	
+		<!--<img  style='width:100px;height:100px' src="<?php #echo "$ruta/fotografias_guardias/hola.jpg" ?>">-->

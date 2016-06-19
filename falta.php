@@ -25,4 +25,8 @@
 	#propuestas, que haya diferentes busquedas de un reporte, todos los reportes generador por un supervisor, cliente en relacion con una empresa, reportes que ha hecho un supervisor, reportes que ha hecho un cliente	
 
 	#preguntar a cesar si es necesario generar datos, todos, de los inmuebles, guardias supervisores etc. 
+
+	#Falta una logica en los jefes de turno, un turno 1 o un turno 2 o cuantos turnos ?? 
+
+	#canciones nuevas,la de tove lo, drake nueva one dance, bastille, toman fuerza sia y zara
 ?>

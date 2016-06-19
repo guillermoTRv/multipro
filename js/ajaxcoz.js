@@ -17,22 +17,39 @@
             });
 
 
+   
+
         $(function(){
-                $("#btn-alta-user").click(function(){
-                    var url="../../panel_sys/personal/admin/crear_guardia/procesar_formUser.php";
-                    $.ajax({
-                        type:"POST",
-                        url:url,
-                        data:$("#alta_usuario").serialize(),
+            $(document).on("click","#btn-alta-user",function(){
 
-                        success:function(data){
-                            $("#m_v").html(data);                
-                        }
+                var formData = new FormData($("#alta_usuario")[0]);
 
-                    });
-                    return false;
+                var ruta = "../../panel_sys/personal/admin/crear_guardia/procesar_formUser.php";
+
+                $.ajax({
+
+                    url: ruta,
+
+                    type: "POST",
+
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(data)
+                    {
+                        $("#m_v").html(data);
+                    }
                 });
             });
+         });
+
+
+
+
+
+
+
+
 
 /****************Ajax cambiar puesto***********************************************/
 /**********************************************************************************/
@@ -558,3 +575,17 @@
                     return false;
                 });
             });
+
+
+        /**************************************************************************************************/
+        $(document).on("change","#buscar_para",function(){
+                    $("#buscar_para option:selected").each(function () {
+                        busq=$(this).val();
+                        $.post("../../panel_sys/opcionesUsuarios/opciones_busquedasAjax.php", { busq: busq}, function(data){
+                        $("#etiqueta_b").html(data);    
+                    });
+                })
+        });
+
+
+        

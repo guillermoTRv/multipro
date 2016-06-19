@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="<?php echo $ruta ?>/Iconos/apple-touch-icon-144-precomposed.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
-    <script src="<?php echo $ruta ?>/js/ajaxcop.js"></script>
+    <script src="<?php echo $ruta ?>/js/ajaxcoz.js"></script>
     <script type="text/javascript" src="../../js/table_excel.js"></script>
         <script language="javascript">
             $(document).ready(function() {
@@ -69,21 +69,22 @@
                     
                 </div>
                 <div class="col-md-3 col-md-offset-2 pull-right">
-                    <form id="form_seccion" method='POST'>
                       <?php 
                         if ($user_get != 'guardia') {
                           ?>
+                          <form action="../../panel_sys/buscador/procesar_busquedaUno.php" method="POST" enctype="multipart/form-data">
                             <div class="input-group">
-                              <input type="search" class="form-control search_sm" placeholder="Search for...">
-                              <span class="input-group-btn search_sm">
-                                <button class="btn btn-default" type="button" style='height:20px;'>
-                                </button>
-                              </span>
+                                <input type="search" class="form-control search_sm" name='buscador' placeholder="Search for...">
+                                <span class="input-group-btn search_sm">
+                                  <button class="btn btn-default" type="submit" style='height:20px;font-size:10px;padding-top:2px'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                  </button>
+                                </span>
                             </div>
+                          </form>
                           <?php
                         }
                       ?>
-                    </form>
                 </div>
               </div>
               <div class="row div_pr">

@@ -1,5 +1,5 @@
 <?php 
-
+	
 	$controller = 0;
 	include("../../../../pack_config.php");
 
@@ -177,121 +177,11 @@
 							$date_final   = substr($date_edadNON, 0,2);
 
 
-							$insertarDatos = "INSERT INTO usuarios_datos_basicos
-							(nombre_g,
-							 apellido_p,
-							 apellido_m,
-							 edad,
-							 curp,
-							 usuario,
-
-							 calle,
-							 colonia,
-							 num_exterior,
-							 num_interior,
-							 codigo_postal,
-							 entidad,
-							 demarcacion,
-							 num_movil,
-							 
-							 name_img,
-							 pass_xc,
-							 
-							 inmueble_asign,
-							 #supervisor,
-							 costo_serv,
-							 turno,
-							 horario_laboral,
-							 tipo_pago,
-
-							 fecha_inicio_contrato,
-							 fecha_finalizacion,
-							 fecha_registro_bd,
-							 estado_repo,
-							 puesto,
-							 empresa,
-							 peso,
-							 estatura
-							 ) VALUES(
-							 '$name_txt',
-							 '$apell_uno',
-							 '$apell_dos',
-							 '$date_final',
-							 '$curp_txt',
-							 '--',
-							 '$calle_txt',
-							 '$colonia',
-							 '$num_ext',
-							 '$num_int',
-							 '$postal',
-							 '$entidad_slc',
-							 '$demarcacion',
-							 '$num_mobil',
-							 'as',
-							 '$pass_txt',
-							 '$name_inmueble',
-							  #'$supervisor',
-							 '$costo',
-							 '$turno',
-							 '12',
-							 '$type_pago',
-							 '$inicio_contr',
-							 '$final_contr',
-							 '$fecha',
-							 'no',
-							 'guardia',
-							 '$id_cliente',
-							 '$peso',
-							 '$estatura'
-							 )";
-							$insertarDatosEjec = mysqli_query($enlace,$insertarDatos) or die("que s");
-
-							$buscarIdparaNombre  = "SELECT id_usuario FROM usuarios_datos_basicos WHERE curp = '$curp_txt'";
-							$buscarIdparaNombre  = mysqli_query($enlace,$buscarIdparaNombre);
-							$buscarIdparaNombre  = mysqli_fetch_array($buscarIdparaNombre);
-							echo "<br>--".$id_usuarioInsertada = $buscarIdparaNombre['id_usuario'];
-
-							$nombreMinusculas      = strtolower($name_txt);
- 
-							$nombreUsuario         = $nombreMinusculas.$id_usuarioInsertada;
-
-							$InsertarNombreUsuario = "UPDATE usuarios_datos_basicos SET usuario='$nombreUsuario' where curp ='$curp_txt'";
-							$InsertarNombreUsuario = mysqli_query($enlace,$InsertarNombreUsuario);							
+							include("insertarDatos.php");
 
 
-
-							/*
-								echo "<br>".$name_txt          =   sanitizar($_POST['name_txt']);
-			echo "<br>".$apell_uno         =   sanitizar($_POST['apell_uno']);
-			echo "<br>".$apell_dos		   =   sanitizar($_POST['apell_dos']);	
-			echo "<br>".$nacimiento_date   =   sanitizar($_POST['nacimiento_date']);
-			echo "<br>".$curp_txt          =   sanitizar($_POST['curp_txt']); 
-			echo "<br>".$usuario_txt       =   sanitizar($_POST['usuario_txt']);       
-			
-			echo "<br>".$pass_txt          =   sanitizar($_POST['pass_txt']);
-			echo "<br>".$calle_txt         =   sanitizar($_POST['calle_txt']);
-			echo "<br>".$num_ext           =   sanitizar($_POST['num_ext']);
-			echo "<br>".$num_int           =   sanitizar($_POST['num_int']);
-			echo "<br>".$colonia           =   sanitizar($_POST['colonia']);
-			echo "<br>".$postal            =   sanitizar($_POST['postal']);
-			echo "<br>".$entidad_slc       =   sanitizar($_POST['entidad_slc']);
-			
-			echo "<br>".$demarcacion       =   sanitizar($_POST['demarcacion_slc']);
-			echo "<br>".$num_mobil         =   sanitizar($_POST['mobil']);
-			echo "<br>".$inmueble_slc      =   sanitizar($_POST['inmueble_slc']);
-			echo "<br>".$supervisor        =   sanitizar($_POST['supervisor']);
-			echo "<br>".$costo             =   sanitizar($_POST['costo']);
-			echo "<br>".$turno             =   sanitizar($_POST['turno']);
-			echo "<br>".$hora_1            =   sanitizar($_POST['hora_1']);
-			echo "<br>".$hora_2            =   sanitizar($_POST['hora_2']);
-			echo "<br>".$type_pago         =   sanitizar($_POST['type_pago']);
-			echo "<br>".$inicio_contr      =   sanitizar($_POST['inicio_contrato']);		
-			echo "<br>".$final_contr       =   sanitizar($_POST['finalizacion_contrato']);	 
-
-							*/
-
-							ECHO "<p class='texto_principal'>El registro ah sido exitoso</p>
-							      <p class='texto_principal'>El nombre del usuario es $nombreUsuario</p>";
+													
+							
 						}
 						else{
 							echo "<p class='texto_principal'>Ese usuario ya estaba registrado</p>"; 

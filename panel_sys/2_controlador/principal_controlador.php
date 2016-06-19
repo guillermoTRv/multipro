@@ -16,6 +16,24 @@
           include("panel_sys/registros_es/guardia/registro_es.php");
       }
   }
+
+  if ($type_user != 'guardia') {
+      if ($nav=='enviarReporteHistorial') {
+       include("panel_sys/reportes/vista_enviarCorreo.php");
+      }
+      if ($nav=='enviarReporteAsistencia') {
+       include("panel_sys/reportes/vista_enviarCorreo.php");
+      }
+      if ($nav=='busquedas') {
+       include("panel_sys/buscador/vista_busquedas.php");
+      }
+      
+
+  }
+
+
+
+
     /*
     if ($type_user=='supervisor') {
       include("panel_sys/controladores/controlador_principalSupervisor.php");

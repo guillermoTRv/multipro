@@ -15,37 +15,21 @@
 		</div>
 
 	</div>
-	<div class="row" style='padding:10px;'>
 		<br>
-		<div class="col-md-8">
-			<div class="row">
-				<div class="col-md-6 espacio_input">
+			<div class="row" style='padding:10px;'>
+				<div class="col-md-4 espacio_input">
 					<p class='text_label'>Fecha de nacimiento</p>
 					<input type='date/time' class='form-control input-sm_user' name='nacimiento_date'>
 				</div>
-				<div class="col-md-6 espacio_input">
+				<div class="col-md-4 espacio_input">
 					<p class='text_label'>Curp</p>
 					<input type='text' class='form-control input-sm_user' name='curp_txt'>
 				</div>
-			</div>
-			<div class="row">
-				<BR>
-				<!--
-				<div class="col-md-6 espacio_input">
-					<p class='text_label'>Usuario</p>
-					<input type='text' class='form-control input-sm_user' name='usuario_txt'>
-				</div>-->
-				<div class="col-md-6 espacio_input">
+				<div class="col-md-4 espacio_input">
 					<p class='text_label'>Password</p>
 					<input type='password' class='form-control input-sm_user' name='pass_txt'>
-				</div>
+				</div>		
 			</div>
-			
-		</div>
-		<div class="col-md-4">
-			FOTOGRAFIA
-		</div>
-	</div>
 	<div class="row">
 		<center>
 		<div style='background-color:#151515;margin-top:20px;border-radius:4px;width:93%;'>
@@ -90,8 +74,6 @@
 			<p class="text_label">Demarcación</p>
 			<select id="municipio_ad" class='form-control select-sm_user' style='margin-top:-0px;' name='demarcacion_slc'>
 				<option value=''>--</option>
-				<option value='Atizapan de Zaragoza'>Atizapan de Zaragoza</option>
-				<option value='Alvaro Obregon'>Alvaro Obregon</option>
 			</select>
 		</div>
 		<div class="col-md-4 espacio_input">
@@ -118,4 +100,39 @@
 			<input type='text' class='form-control input-sm_user' name='estatura'>
 		</div>
 	</div>
+
+	<div class="row"  style='padding:10px;'>
+		
+		<div class="col-md-4 espacio_input">
+				<p class='text_label'>Fotografia del elemento</p>
+				<input type="file" id="files" name="files" style="color:white;" />
+				<output id="list"></output>
+		</div>
+	</div>
 	<?php echo $toquen; ?>
+	<script>
+	  function archivo(evt) {
+	      var files = evt.target.files; // FileList object
+	       
+	        //Obtenemos la imagen del campo "file". 
+	      for (var i = 0, f; f = files[i]; i++) {         
+	           //Solo admitimos imágenes.
+	           if (!f.type.match('image.*')) {
+	                continue;
+	           }
+	       
+	           var reader = new FileReader();
+	           
+	           reader.onload = (function(theFile) {
+	               return function(e) {
+	               // Creamos la imagen.
+	                      document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+	               };
+	           })(f);
+	 
+	           reader.readAsDataURL(f);
+	       }
+		}
+	             
+	    document.getElementById('files').addEventListener('change', archivo, false);
+	</script>	

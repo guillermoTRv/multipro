@@ -2,7 +2,7 @@
 	$type_userRepo = sanitizar($_GET['user']);
 	if ($type_userRepo == "guardia"   ) {$palabra_user = "guardias";}
 	if ($type_userRepo == "supervisor") {$palabra_user = "supervisores";}
-
+	if ($type_userRepo == "cliente")    {$palabra_user = "clientes";}
 
 	$inmuebleRepo  = sanitizar($_GET['inmueble']);
 	$fechaUnoRepo  = sanitizar($_GET['uno']);
