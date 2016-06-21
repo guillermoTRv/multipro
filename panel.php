@@ -9,7 +9,7 @@
    $type_user       =  $_SESSION['type_user'];
    $id_personal     =  $_SESSION['id_usuario'];
    $name_user       =  $_SESSION['name_user'];
-    
+
    include("panel_sys/1_get/principal_get.php");
    
    #podriamos hacer un control de url que solo permita ciertas url y en caso de que no reconozca algun redirgir a una pagina   
@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="<?php echo $ruta ?>/Iconos/apple-touch-icon-144-precomposed.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
-    <script src="<?php echo $ruta ?>/js/ajaxcoz.js"></script>
+    <script src="<?php echo $ruta ?>/js/ajaxcoc.js"></script>
     <script type="text/javascript" src="../../js/table_excel.js"></script>
         <script language="javascript">
             $(document).ready(function() {
@@ -88,6 +88,12 @@
                 </div>
               </div>
               <div class="row div_pr">
+                <?php 
+                  $mensaje =  $_GET['mens']; 
+                  if (isset($mensaje)) {
+                      echo  "<p class='texto_principal' style='margin-bottom:7px;'><strong>$mensaje</strong></p>";
+                  } 
+                ?>
                 <?php
                     include("panel_sys/2_controlador/principal_controlador.php");  
                 ?>

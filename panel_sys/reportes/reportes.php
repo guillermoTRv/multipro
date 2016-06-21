@@ -8,7 +8,7 @@
 	if ($nav=="reportes") {
 	?>		
 		<a href="<?php echo "$ruta/panel/$user_get/reportes-asistencias"; ?>" class="a_limpia"><span class='glyphicon glyphicon-ok'></span> Generar reporte asistencia</a><br>
-		<a href="<?php echo "$ruta/panel/$user_get/reportes-historial"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar reporte de historiales</a><br>
+		<a href="<?php echo "$ruta/panel/$user_get/reportes-historial"; ?>" class="a_limpia"><span class='glyphicon glyphicon-time'></span> Generar historial de reportes</a><br>
 		<?php 
 			if ($type_user=='administrador') {
 				# code...

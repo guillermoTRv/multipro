@@ -8,7 +8,7 @@
 
         ?>
         <div class="col-md-5 col-md-offset-1">
-             <a style='width:170px;' href='<?php echo $ruta."/panel/".$nameGet ?>/personal-guardias' class='btn btn-sm btn-ind'>
+             <a style='width:170px;' href='<?php echo $ruta."/process_cliente.php?cl=".$nameGet ?>' class='btn btn-sm btn-ind'>
                  <?php echo $nameCliente; ?> 
              </a>
          </div>

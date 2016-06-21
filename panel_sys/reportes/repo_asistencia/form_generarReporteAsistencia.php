@@ -24,7 +24,6 @@
 		";
 	}
 	
-
 ?>
 
 		<form action="../../panel_sys/reportes/generar_repoAsistencias.php" method="POST" enctype="multipart/form-data">

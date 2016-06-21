@@ -6,7 +6,7 @@
 
    if ($type_user=='administrador') {
    		 $tipo_usuario_encabezado   = $type_user;
-   		 $dato_izquierdo            = $cliente; 
+   		 $dato_izquierdo            = $_SESSION['cliente_empresa']; 
    
 
        switch ($nav) {

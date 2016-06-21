@@ -50,6 +50,7 @@
   </thead>
   <form id="form_bajaElementos" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="<?php echo $name_inmueble ?>" name='inmueble_user'>
+    <input type="hidden" value="<?php echo $nav ?>" name='nav'>
     <tbody id="listado_personalBaja">
         <?php
         $consultaGuardias         = "SELECT id_usuario,nombre_g,apellido_p,apellido_m,calle,colonia,num_exterior,demarcacion,turno,inmueble_asign,estado_repo,edad FROM  usuarios_datos_basicos WHERE inmueble_asign='$name_inmueble' and puesto='guardia' ORDER BY id_usuario ASC";

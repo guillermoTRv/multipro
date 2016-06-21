@@ -38,6 +38,7 @@
               ?>
                   <tr style='margin-bottom:7px;' <?php echo "ondblclick='myFunction$id_usuario()'"; ?>>
                     <td><?php echo "$nombre_g $apellido_p $apellido_m" ?></td>
+                    <td><?php echo "$edad"; ?></td>
                     <td><?php echo "$calle $colonia $num_ext $demarcacion"; ?></td>
                     <td><?php echo "$consultaNumImuebles"; ?></td>
                     <td>

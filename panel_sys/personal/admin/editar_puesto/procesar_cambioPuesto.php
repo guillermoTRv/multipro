@@ -2,8 +2,8 @@
 include("../../../../pack_config.php");
 	
  #echo $empresa    = $_POST['empresa_slc'];
- echo "<br>".$inmueble   = sanitizar($_POST['inmueble_slc']); 
- echo "<br>".$id_usuario = sanitizar($_POST['user']);
+ $inmueble   = sanitizar($_POST['inmueble_slc']); 
+ $id_usuario = sanitizar($_POST['user']);
 
 	if ($inmueble!='' and $id_usuario!='') {
 		$valConsulta = "SELECT * FROM inmuebles WHERE id_inmueble = '$inmueble'";
@@ -16,26 +16,25 @@ include("../../../../pack_config.php");
 			 	$insertarSupervisor = "UPDATE inmuebles SET supervisor='$id_usuario' WHERE id_inmueble='$inmueble'";
 			 	$insertarSupervisor = mysqli_query($enlace,$insertarSupervisor) or die("Error al registrar supervisor"); 
 
-			 	$cambioTypeUser = "UPDATE usuarios_datos_basicos SET inmueble_asign='--',supervisor='--',puesto='supervisor' where id_usuario='$id_usuario'";
+			 	$cambioTypeUser = "UPDATE usuarios_datos_basicos SET inmueble_asign='--',puesto='supervisor' where id_usuario='$id_usuario'";
 			 	$cambioTypeUser = mysqli_query($enlace,$cambioTypeUser) or die("Que rayos");
 
-			 	echo "Se ha asignado correctamente como supervisor al personal con la id $id_usuario";
+			 	echo "<p class='texto_principal'>Se ha asignado correctamente como supervisor al personal con la id $id_usuario<p/>";
 			}
 			else{
 				if ($supervisor == $id_usuario) {
-				   echo "Ya esta registrado como supervisor";
+				   echo "<p class='texto_principal'>Ya esta registrado como supervisor<p/>";
 			    }
 			    else{
 					$insertarSupervisor = "UPDATE inmuebles SET supervisor='$id_usuario' WHERE id_inmueble='$inmueble'";
 				 	$insertarSupervisor = mysqli_query($enlace,$insertarSupervisor) or die("Error al registrar supervisor"); 
 
-				 	$cambioTypeUser = "UPDATE usuarios_datos_basicos SET inmueble_asign='--',supervisor='--',puesto='supervisor' where id_usuario='$id_usuario'";
+				 	$cambioTypeUser = "UPDATE usuarios_datos_basicos SET inmueble_asign='--',puesto='supervisor' where id_usuario='$id_usuario'";
 				 	$cambioTypeUser = mysqli_query($enlace,$cambioTypeUser) or die("Que rayos");
 
-				 	echo "Se ha cambiado a '$supervisor' como supervisor del inmueble '$inmueble' por el personal $id_usuario";				   
+				 	echo "<p class='texto_principal'>Se ha cambiado a '$supervisor' como supervisor del inmueble '$inmueble' por el personal $id_usuario<p/>";				   
 			    }				
 			}	
-
 
 	}
 	else{
@@ -92,4 +91,4 @@ include("../../../../pack_config.php");
 */
 ?>
 
-<button id="btn-cambio-user" type="button" class="btn btn-default">--Aceptar--</button>
+<button id="btn-cambio-user" type="button" class="btn btn-default">--Asignar otro inmueble--</button>

@@ -16,6 +16,7 @@
 							<div class="col-md-4 col-md-offset-2">
 						    	<label>Realizar para:</label>
 						    	<select id="buscar_para" class="form-control select-sm_user" style='margin:0px;' >
+							    	<option value="--">--</option>
 							    	<option value="personal">Personal</option>
 			                    	<!--<option value="excel">Supervisores</option>-->	
 			                    	<option value="inmuebles">Inmuebles</option>
@@ -34,9 +35,6 @@
 								<input type="text" class="form-control input-sm_user" placeholder="Ingrese texto">
 							</div>
 						</div>
-							
-
-
 		            
 		            	<hr>
 		            	<button class='btn btn-default' data-dismiss="modal">Cerrar ventana</button>
