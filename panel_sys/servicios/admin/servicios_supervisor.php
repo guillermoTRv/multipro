@@ -42,6 +42,39 @@
 			</div>
 			
 		</div>
+		<br>
+		<p style='text-align:center;font-size:1.1em;color:#f2f2f2;'>Penalización por inasistencia</p>
+		<div class="row" style='background-color:#E6E6E6;margin:20px;border-radius:4px;'>
+			<div class="col-md-12" style='padding:12px;'>
+				<form lass="form-horizontal" id="form_costosServicioSupervisor">
+					<input type="hidden" value='1' name='type_costo'>
+					<div class="form-group">
+					    <label style='color:#202122;margin-top:4px;' class="control-label col-sm-3">Supervisores</label>
+					    <div class="col-sm-9">
+					      <div class="input-group input-group-sm">
+						  	<span class="input-group-addon">$</span>
+						  	<input type="text" class="form-control" name='costo_normal' value='<?php echo $costo_normal; ?>'>
+						  </div>
+					    </div>
+					</div>
+					<div class="form-group pull-right" style="margin-top:16px">
+						<div class="col-md-5">
+							<button type="submit" class="btn btn-default" id="guardar_servicioSupervisor">Guardar cambios</button>
+						</div>	
+					</div>
+					<p style='color:#E6E6E6;'>---</p>
+					<div class="form-group pull-right" style="margin-top:16px;">
+						<div class="col-md-12">
+							<div  id="mensaje_ss">
+					
+				    		</div>
+						</div>	
+					</div>
+				</form>
+
+			</div>
+			
+		</div>
 	</div>
 
 	<div class="col-md-6">

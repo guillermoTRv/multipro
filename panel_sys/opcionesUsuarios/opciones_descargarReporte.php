@@ -1,5 +1,5 @@
 <?php 
- 	if ($nav=='Asistenciareportes' or $nav=='Historialreportes') {
+ 	if ($nav=='Asistenciareportes' or $nav=='Historialreportes' or $nav=='Generalreportes') {
  		?>
 		<a href="#bajarDoc" data-toggle='modal' class="limpia">
 			<span class="glyphicon glyphicon-download-alt log_sm"></span>&nbsp;&nbsp;&nbsp;

@@ -1,4 +1,4 @@
-a    <div class="row" style='margin-bottom:17px;margin-top:10px;'>
+    <div class="row" style='margin-bottom:17px;margin-top:10px;'>
         <div class="col-md-3">
             <?php 
                 if ($type_user == 'administrador') {

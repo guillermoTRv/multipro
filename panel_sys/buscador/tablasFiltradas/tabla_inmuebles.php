@@ -1,3 +1,39 @@
+<?php 
+
+if ($varType == 'nombre') {
+    $bachilleres = substr($varBusqueda,0,11);
+    if ($bachilleres=="Bachilleres") {
+        $one ="Bachilleres";
+        $two = substr($varBusqueda,12);
+        $varBusqueda = $one." #".$two;
+    }
+
+    
+    $inmuebles_c = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE name_inmueble LIKE '%$varBusqueda%'";  
+}
+if ($varType == 'supervisor') {
+    $supervisorConsulta = "SELECT id_usuario FROM usuarios_datos_basicos WHERE nombre_g = '$varBusqueda'";
+    $supervisorConsulta = mysqli_query($enlace,$supervisorConsulta);
+    $supervisorConsulta = mysqli_fetch_array($supervisorConsulta);
+    $id_supervisorC     = $supervisorConsulta['id_usuario'];
+
+    $inmuebles_c = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE supervisor='$id_supervisorC'";  
+} 
+
+    $inmuebles_e      = mysqli_query($enlace,$inmuebles_c) or die("--");
+    $count            = mysqli_num_rows($inmuebles_e);
+
+
+?>
+
+
+ <?php 
+    if ($count == 0) {
+        ECHO "<p class='texto_principal'>La busqueda no genero resultados</p>";
+    }
+    else{
+      ?>
+
 <table class="table table-striped" style='color:#353637;border-radius:4px;border:solid 1px #e06000;'>
     <thead>
       <tr>   
@@ -20,9 +56,9 @@
 						}
 
 
-                      	$inmuebles_c      = "SELECT id_inmueble,name_inmueble,calle,colonia,num_exterior,num_interior,demarcacion,supervisor,estado_repo FROM inmuebles WHERE id_inmueble = '$idInm' ORDER BY id_inmueble ASC";
+                      
                         $mansajeInmuebles = "Listado de inmuebles para $porZona";
-                        $inmuebles_e      = mysqli_query($enlace,$inmuebles_c);
+                       
                         while ($array     = mysqli_fetch_array($inmuebles_e)) {
                               $id_inmueble   = $array['id_inmueble']; 
                               $nombre        = $array['name_inmueble'];
@@ -79,3 +115,7 @@
                       ?>
                     </tbody>
 </table>
+
+<?php
+    }
+    ?>

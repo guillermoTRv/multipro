@@ -27,7 +27,8 @@
     <link rel="shortcut icon" href="<?php echo $ruta ?>/Iconos/apple-touch-icon-144-precomposed.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
-    <script src="<?php echo $ruta ?>/js/ajaxcoc.js"></script>
+    <script src="<?php echo $ruta ?>/js/ajaxcocp.js"></script>
+    
     <script type="text/javascript" src="../../js/table_excel.js"></script>
         <script language="javascript">
             $(document).ready(function() {

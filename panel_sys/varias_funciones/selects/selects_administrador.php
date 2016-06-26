@@ -3,11 +3,20 @@
             ?>
                 <select class="form-control select-sm_user" style='margin:0px;' id='consulta-lista-personal'>
                      <option value='guardias'     <?php selected("personal-guardias");     ?>>Guardias</option>
-                     <option value='supervisores' <?php selected("personal-supervisores"); ?>>Supervisores</option>
+                     <option value='supervisores' 
+                            <?php  
+                                selected("personal-supervisores");
+                                selected("personal-supervisores-empresa");
+                                selected("personal-supervisores-empresa-inmueble"); 
+                                selected("personal_crear_supervisor");
+                            ?>>
+                            Supervisores
+                     </option>
                      <option value='clientes'     <?php selected("personal-clientes");     ?>>Clientes</option>
                 </select>
             <?php
         }
+
 
         if (isset($personal_bajas)) {
             ?>

@@ -27,7 +27,12 @@
       if ($nav=='busquedas') {
        include("panel_sys/buscador/vista_busquedas.php");
       }
-      
+      if ($nav=='busquedasFiltradas') {
+        include("panel_sys/buscador/vista_busquedasFiltradas.php");
+      }
+      if ($nav=='errorReporte') {
+        include("panel_sys/reportes/vista_errorReportes.php"); 
+      }
 
   }
 

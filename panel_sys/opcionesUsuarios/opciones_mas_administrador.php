@@ -5,8 +5,15 @@
        		$complementoMas     = "href='$rutaAgregar'";
        		$variableController = 1;
 		}
+
 		if ($nav == "personal-clientes") {
 			$rutaAgregar        = "$ruta/panel/$user_get/personal_crear_cliente";
+       		$complementoMas     = "href='$rutaAgregar'";
+       		$variableController = 1;	
+		}
+
+		if ($nav == "personal-supervisores" or $nav == "personal-supervisores-empresa" or $nav == "personal-supervisores-empresa-inmueble" or $nav == "personal_crear_supervisor") {
+			$rutaAgregar        = "$ruta/panel/$user_get/personal_crear_supervisor";
        		$complementoMas     = "href='$rutaAgregar'";
        		$variableController = 1;	
 		}
@@ -17,9 +24,11 @@
 	    	$complementoMas     = "href='$rutaAgregar'";
 	    	$variableController = 1;
 	    }
+
 	    if($variableController!=1){
 	    	$complementoMas = $popover.$opcion_none;
 	    }
+
 		if (isset($check_nav)) {
 			$complementoMas = "href='#modalCheck' data-toggle='modal'";
 		}

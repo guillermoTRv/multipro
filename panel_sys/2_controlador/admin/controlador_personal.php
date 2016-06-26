@@ -27,6 +27,10 @@
           case 'personal_crear_cliente':
               include("panel_sys/personal/admin/crear_cliente/crear_cliente.php"); 
           break;
+
+          case 'personal_crear_supervisor':
+              include("panel_sys/personal/admin/crear_supervisor/crear_supervisor.php"); 
+          break;
                          
         } 
     

@@ -3,7 +3,7 @@
 	$opcion = sanitizar($_POST['busq']);
 	if ($opcion == 'personal') {
 		?>
-		<option value="nombre">Nombre y apellidos</option>
+		<option value="nombres">Nombre y apellidos</option>
 		<option value="inmueble">Inmueble</option>
 		<option value="edad">Edad</option>
 		<option value="curp">Curp</option>

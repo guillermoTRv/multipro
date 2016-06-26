@@ -49,7 +49,7 @@
 
 		}
 		else{
-			header("Location: $ruta");
+			header("Location: $ruta?mens=error");
 		}
 
 
@@ -106,7 +106,7 @@
 
 			}
 			else{
-				header("Location: $ruta");
+				header("Location: $ruta?mens=error");
 			}
 
 

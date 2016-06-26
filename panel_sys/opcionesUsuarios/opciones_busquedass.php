@@ -15,7 +15,7 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-2">
 						    	<label>Realizar para:</label>
-						    	<select id="buscar_para" class="form-control select-sm_user" style='margin:0px;' >
+						    	<select id="buscar_para" class="form-control select-sm_user" name='by' style='margin:0px;' >
 							    	<option value="--">--</option>
 							    	<option value="personal">Personal</option>
 			                    	<!--<option value="excel">Supervisores</option>-->	
@@ -25,14 +25,14 @@
 
 							<div class="col-md-4">
 							    <label>Etiqueta</label>
-							    <select id="etiqueta_b" class="form-control select-sm_user" style='margin:0px;' >
+							    <select id="etiqueta_b" class="form-control select-sm_user" name='type' style='margin:0px;' >
 							      <option value="">--</option>
 							    </select>
 							</div>			
 						</div>
 						<div class="row" style="margin-top:25px;"> 
 							<div class="col-md-8 col-md-offset-2">
-								<input type="text" class="form-control input-sm_user" placeholder="Ingrese texto">
+								<input type="text" class="form-control input-sm_user" name='buscador' placeholder="Ingrese texto">
 							</div>
 						</div>
 		            

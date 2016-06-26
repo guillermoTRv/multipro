@@ -29,4 +29,12 @@
 	#Falta una logica en los jefes de turno, un turno 1 o un turno 2 o cuantos turnos ?? 
 
 	#canciones nuevas,la de tove lo, drake nueva one dance, bastille, toman fuerza sia y zara
+
+	#botones de regresar
+
+	#falta la consulta para poner que el checklist fue atendido
+
+	#falta el codigo para que se defina la asistencia
+
+
 ?>

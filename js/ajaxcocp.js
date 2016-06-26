@@ -591,4 +591,22 @@
         });
 
 
-        
+        /***************************************************************************************************/
+
+
+         $(function(){
+              $(document).on("click","#btn-alta-supervisor",function(){
+                        var url="../../panel_sys/personal/admin/crear_supervisor/procesar_altaSupervisor.php";
+                        $.ajax({
+                            type:"POST",
+                            url:url,
+                            data:$("#alta_usuario").serialize(),
+                            success:function(data){
+                                $("#m_v").html(data);
+                            }
+
+                        });
+
+                        return false;
+                    });
+                });

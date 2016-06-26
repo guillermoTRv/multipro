@@ -12,6 +12,8 @@
 		
 		$altaUsuarios   = opciones_guardar($nav,"personal_crear","href='#'","btn-alta-user");
 
+		$altaSupervisor = opciones_guardar($nav,"personal_crear_supervisor","href='#'","btn-alta-supervisor");
+
 		$altaCliente    = opciones_guardar($nav,"personal_crear_cliente","href='#'","btn-alta-cliente");	
 
 		$editarUsuarios = opciones_guardar($user_nav,"User","href='#'","btn-editar-user");

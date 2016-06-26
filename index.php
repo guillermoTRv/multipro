@@ -1,6 +1,7 @@
 <?php 
     include("input_toquen.php"); 
     include("ruta.php");
+    include("sanitizar.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +73,17 @@
                             </div>
                         </div>
                     </div>
+                    <center>
+                        <div style="width:361px;margin-top:20px;">
+                        <?php 
+                            
+                            $mens = sanitizar($_GET['mens']);
+                            if ($mens == 'error') {
+                                echo "<p style='background-color:#e06000;color:white;border-radius:5px'>Usuario o contraseña incorrectos</p>";   
+                            }
+                        ?>
+                        </div>
+                    </center> 
                     
                 </div>
             </div>
